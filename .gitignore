@@ -1,1 +1,8 @@
 node_modules
+packaged
+.babelrc
+gulpfile.bable.js
+package.json
+package-lock.json
+dist
+lib/plugins

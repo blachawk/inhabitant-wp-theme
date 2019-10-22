@@ -1,0 +1,92 @@
+//_tn_vendor_bootstrap_4 variables
+
+// Use this file to overwrite the basic Bootstrap variables and add your own variables
+// To overwrite a Bootstrap variable you don´t have to touch the Bootstrap folder.
+// Just copy a variable from src/sass/bootstrap4/_variables.scss, paste it here and edit the value.
+
+//OFFICIAL CONTAINER SIZES
+$container-max-widths: (
+xs:300px,
+sm: 420px,
+md: 720px,
+lg: 1000px,
+xl: 1200px
+);
+
+@function get-breakpoints($key: "md") {
+    @return map-get($container-max-widths, $key);
+}
+
+//OFFICIAL COLORS
+$color-white: #fff;
+$color-sand-light: #F6CF73;
+$color-sand-mid: #d4b263;
+$color-sand-dark: #826d3d;
+$color-sand-darker: #746236;
+$color-sand-darkest: #5d4d28;
+$color-grey-light: #66636b;
+$color-grey-dark: #333;
+$color-purple: #9f5292;
+
+//OFFICIAL SIZES
+$font-large: 2.4em;
+$font-medium: 1.125em;
+$font-normal: 1em;
+$font-small: 0.875em;
+$font-tiny:0.5em;
+
+//OFFICIAL FAMILIES
+$font-fam: Helvetica, Geneva, Arial, 'SunSans-Regular', sans-serif;
+$font-fam-Nunito: 'Nunito Sans', sans-serif;
+
+// //OVERRIDE BS4 THEME COLORS WITH OUR FFA COLORS!
+$theme-colors: ( 
+    primary:$color-sand-light, 
+    secondary: $color-sand-dark, 
+    success: $color-sand-mid, 
+    info: $color-grey-light, 
+    warning: $color-sand-darker, 
+    light: $color-sand-light, 
+    dark: $color-grey-dark
+    );
+$theme-primary: map-get($theme-colors, "primary");
+$theme-secondary: map-get($theme-colors, "secondary");
+$theme-success: map-get($theme-colors, "success");
+$theme-info: map-get($theme-colors, "info");
+$theme-warning: map-get($theme-colors, "warning");
+$theme-light: map-get($theme-colors, "light");
+$theme-dark: map-get($theme-colors, "dark");
+
+
+//BUTTON COLORS
+$classes: primary secondary success warning danger;
+$colors: (
+    primary: ( normal: #007bff, light: lighten(#007bff,10%) ),
+    secondary: ( normal: #6c757d, light: lighten(#6c757d,10%) ),
+    success: ( normal: #28a745, light: lighten(#28a745,10%) ),
+    warning: ( normal: #ffc107, light: lighten(#ffc107,10%) ),
+    danger: ( normal: #dc3545, light: lighten(#dc3545,10%) )
+);
+@each $class in $classes{
+  .btn-#{$class}{
+    $currentColor: map-get(map-get($colors,#{$class}), normal);
+    $currentColorLighten: map-get(map-get($colors,#{$class}), light);
+    background: linear-gradient(to right, $currentColor, $currentColorLighten);
+  }
+}
+
+//MIXINS
+@mixin panel-varient($bgcolorOff, $borcolorOff, $bgcolorOn, $borcolorOn, $bgcolorAct, $borcolorAct, $txtcolorOff, $txtcolorOn, $txtsize, $txtalign){
+    //OVERRIDE BS4 BUTTON VARIENTS
+    @include button-variant($bgcolorOff, $borcolorOff, $bgcolorOn, $borcolorOn, $bgcolorAct, $borcolorAct);
+    color:$color-sand-dark;
+    font-size:$txtsize;
+    font-weight:bold;
+    text-transform:uppercase;
+    text-decoration:none;
+    text-align:$txtalign;
+}
+
+//OFFICIAL PATH FOR BACKGROUND IMAGES
+$bg-path: '/wordpress/mythemes/udemy/wp-content/uploads/'; //LOCALHOST
+//$bg-path: '/wp-content/uploads/'; //BLUEHOST LIVE

@@ -3,4 +3,4 @@ import $ from 'jquery'; //https://www.npmjs.com/package/jquery | added jquery fo
 
 console.log('testing raw js is ok ');
 //testing jquery
-//$('body').addClass('mjquery');
+$('html').addClass('mjquery');

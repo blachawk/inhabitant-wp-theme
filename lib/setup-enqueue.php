@@ -5,14 +5,14 @@ function _tnchild_assets()
 {
     wp_enqueue_style(
         '_tnchild-stylesheet',
-        get_stylesheet_directory_uri().'/dist/css/bundle.css',
+        get_stylesheet_directory_uri().'/dist/assets/css/bundle.css',
         '1.0.0',
         'all'
     );
 
     wp_enqueue_script(
         '_tnchild-script',
-        get_stylesheet_directory_uri().'/dist/js/bundle.js',
+        get_stylesheet_directory_uri().'/dist/assets/js/bundle.js',
         '1.0.0',
         true
     );

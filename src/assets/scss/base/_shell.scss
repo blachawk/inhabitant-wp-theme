@@ -6,6 +6,62 @@
 //WIDGETS
 //MEDIA QUERIES
 
-body {
-    border:solid 0.5em skyblue!important;
+/*
+DETAILED BRANDING STEPS:
+- done.background color is good
+- done.title area | remove tagline
+- done.add custom favicon via add_action()
+- done.add google fonts via add_action()
+- done.remove search bar area | unregister widget in code 
+- alreadyset.adjust footer colors in customizer
+- done.remove the credit in footer via add_action | //turn off store credit text based on codition | https://wordpress.org/support/topic/storefront-code-used-to-remove-credit/
+- done.reshaped the footer shell via SASS
+- rebuild the navigation menu, along with the hamburger icon, shopping basket and total
+- Add custom products
+- the WP Sample page (or shop page???) will have its own custom page template to allow a listing of WP_Query of products & AND! a custom sidebar widget for the bottom of the loop for the "about" section.
+
+*/
+
+html {
+    body {
+        font-family: $font-fam-fira;
+
+        .site-branding {
+            .site-title {
+                font-family: $font-fam-mplus;
+                font-size: $font-xlarge;
+            }
+        }
+
+        .site-footer {
+            padding:0;
+
+            .footer-widgets {
+                //SET NORMAL SIZE FOR IMAGES IN FOOTER
+                max-width:100%;
+                padding:0;
+                .widget {
+                    margin:1em 0;
+                    text-align:center;
+                    .widget-title {
+                        font-family:$font-fam-fira;
+                        font-size:$font-small;
+                        font-weight: 500;
+                        color:$theme-dark;
+                        border-bottom:none;
+                    }
+                    .textwidget.custom-html-widget {
+                        text-align:center;
+                        img {
+                            margin:0 auto;
+                        }
+                    }                    
+                }
+            }
+
+            .site-info {
+                display:none;
+            }
+        }
+    }
 }

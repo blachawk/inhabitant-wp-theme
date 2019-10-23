@@ -1,8 +1,9 @@
 <?php
 
-require_once 'lib/setup-enqueue.php';
-require_once 'lib/setup-header.php';
-require_once 'lib/setup-sidebars.php';
-require_once 'lib/helper-actions.php';
-require_once 'lib/helper-filters.php';
-require_once 'lib/helper-woohooks.php';
+require_once 'lib/setup-enqueue.php';    //_tn -
+require_once 'lib/setup-header.php';     //_tn - customize the <head></head> section of our templates
+require_once 'lib/setup-sidebars.php';   //_tn - helpful for content areas like footer, about us (on homepage), etc...
+require_once 'lib/setup-navigation.php'; //_tn - create our own custom navigation menu on top of page
+require_once 'lib/helper-actions.php';   //_tn - create custom actions to add to the project
+require_once 'lib/helper-filters.php';   //_tn - create custom filters to add to the project
+require_once 'lib/helper-woohooks.php';  //_tn - tap into woocommerce actions and filters directly | https://docs.woocommerce.com/document/introduction-to-hooks-actions-and-filters/

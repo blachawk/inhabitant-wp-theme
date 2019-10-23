@@ -1,6 +1,6 @@
 <?php
 
-//_tn ACCESS CORE FILTERS TO DYNAMICALLY ADD STUFF TO HEADER
+//_tn - ACCESS CORE FILTERS TO DYNAMICALLY ADD STUFF TO HEADER
 function _tn_core_filters_add_to_head()
 {
     //_tn add a favicon

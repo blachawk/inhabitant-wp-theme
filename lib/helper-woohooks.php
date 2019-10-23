@@ -1,16 +1,16 @@
 <?php
 
-//_tn - WOOCOMMERCE HOOKS WE CAN TAP INTO | https://docs.woocommerce.com/document/introduction-to-hooks-actions-and-filters/ | https://stackoverflow.com/a/38735106/95718
+//_tn - STOREFRONT HOOKS WE CAN TAP INTO | https://docs.woocommerce.com/document/storefront-hooks-actions-filters/ | https://stackoverflow.com/a/38735106/95718 | https://stackoverflow.com/search?q=wordpress+storefront
 
 /**
- * //HOW TO UNREGISTER WCOMMERCE WIDGETS
+ * //HOW TO UNREGISTER STOREFRONT WIDGETS
  * _tn THE TEMPLATE | https://rudrastyh.com/woocommerce/remove-widgets.html
  *  add_action( 'widgets_init', function(){
  * 	unregister_widget('Widget_Class_Name_Here');
  * 	unregister_widget('Another_Widget_Class_Name_Here');
  *  });.
  *
- * //HOW TO MODIFY WOOMCOMMERCE VIA ACTIONS
+ * //HOW TO MODIFY STOREFRONT ACTIONS
  * add_action( 'action_name', 'your_function_name' );
  * function your_function_name() {
  * // Your code

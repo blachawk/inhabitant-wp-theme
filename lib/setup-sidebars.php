@@ -1,9 +1,9 @@
 <?php
 
-//_tn-REGISTER SIDE BARS
+//_tn - DEMO | REGISTER CUSTOM SIDE BARS | I.E. FOOTER AND ABOUT US SECTION
 function _tn_core_action_reg_sidebars()
 {
-    //_tn-REGISTER FOOTER MULTI SIDEBARS | CREATE A LIGHT MULTI SIDE BAR SYSTEM
+    //_tn - DEMO | REGISTER FOOTER MULTI SIDEBARS | CREATE A LIGHT MULTI SIDE BAR SYSTEM
     $footer_layout = '3,3,3,3'; //4 columns with a bs4 col width of 3
     $columns = explode(',', $footer_layout);
     foreach ($columns as $i => $column) {
@@ -20,7 +20,7 @@ function _tn_core_action_reg_sidebars()
 }
 //add_action('widgets_init', '_tn_core_action_reg_sidebars');
 
-//_tn-DISPLAY SIDE BARS
+//_tn - DEMO | DISPLAY SIDE BARS
 function _tn_action_sidebars_multi()
 {
     $footer_layout = '3,3,3,3';
@@ -53,9 +53,9 @@ function _tn_action_sidebars_multi()
 }
 //add_action('_tn_action_footer_sidebars', '_tn_action_sidebars_multi', 1);
 
+//_tn - DEMO | HOW TO PROPERLY UNREGISTER WIDGETS I HAVE SET IN PLACE
 function remove_custom_footer_widget()
 {
     unregister_widget('WP_Widget_Calendar');
 }
-
 //add_action( 'widgets_init', 'remove_custom_footer_widget' );

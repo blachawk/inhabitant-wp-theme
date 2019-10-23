@@ -1,37 +1,53 @@
 <?php
 
-    //_tn - WOOCOMMERCE HOOKS WE CAN TAP INTO AND RE-MODIFY | https://stackoverflow.com/a/38735106/95718
+//_tn - WOOCOMMERCE HOOKS WE CAN TAP INTO | https://docs.woocommerce.com/document/introduction-to-hooks-actions-and-filters/ | https://stackoverflow.com/a/38735106/95718
 
-    if (!function_exists('storefront_credit')) {
-        /**
-         * Display the theme credit.
-         *
-         * @since  1.0.0
-         *
-         * @return void
-         */
-        function storefront_credit()
-        {
-            $links_output = '';
+/**
+ * //HOW TO UNREGISTER WCOMMERCE WIDGETS
+ * _tn THE TEMPLATE | https://rudrastyh.com/woocommerce/remove-widgets.html
+ *  add_action( 'widgets_init', function(){
+ * 	unregister_widget('Widget_Class_Name_Here');
+ * 	unregister_widget('Another_Widget_Class_Name_Here');
+ *  });.
+ *
+ * //HOW TO MODIFY WOOMCOMMERCE VIA ACTIONS
+ * add_action( 'action_name', 'your_function_name' );
+ * function your_function_name() {
+ * // Your code
+ * }
+ *
+ * do_action('action_name');
+ */
 
-            if (apply_filters('storefront_credit_link', true)) {
-                $links_output .= '<a href="https://woocommerce.com" target="_blank" title="'.esc_attr__('WooCommerce - A KLP platform', 'storefront').'" rel="author">'.esc_html__('Built with Storefront &amp; WooCommerce', 'storefront').'</a>.';
-            }
+//_tn - WHEN WIDGETS ARE INITLIAZED....
+add_action('widgets_init', function () {
+    //UNREGISTER WOOCOMMERCE SEARCH
+    unregister_widget('WC_Widget_Product_Search');
+    //THE FOLLOWING "MAY" NOT WORK....
+    // //UNREGISTER TAG CLOUD
+    // unregister_widget('WC_Widget_Product_Tag_Cloud');
+    // //UNREGISTER PRODUCT RATINGS
+    // unregister_widget('WC_Widget_Rating_Filter');
+    // //UNREGISTER PRODUCT REVIEWS
+    // unregister_widget('WC_Widget_Recent_Reviews');
+    // //UNREGISTER VIEWED PRODUCTS
+    // unregister_widget('WC_Widget_Recently_Viewed');
+    // //UNREGISTER PRODUCTS BY RATING
+    // unregister_widget('WC_Widget_Top_Rated_Products');
+});
 
-            if (apply_filters('storefront_privacy_policy_link', true) && function_exists('the_privacy_policy_link')) {
-                $separator = '<span role="separator" aria-hidden="true"></span>';
-                $links_output = get_the_privacy_policy_link('', (!empty($links_output) ? $separator : '')).$links_output;
-            }
+//_tn - HOW MANY FOOTER WIDGETS "DO WE REALLY NEED" IN WP-ADMIN
+add_filter('storefront_footer_widget_columns', function () {
+    return '1';
+});
 
-            $links_output = apply_filters('storefront_credit_links_output', $links_output); ?>
-<div class="site-info">
-    <?php echo esc_html(apply_filters('storefront_copyright_text', $content = '&copy; '.get_bloginfo('name').' '.date('Y'))); ?>
+//_tn - REMOVE STOREFRONT CREDIT/COPY IN FOOTER | https://wordpress.org/support/topic/storefront-code-used-to-remove-credit/  | https://docs.woocommerce.com/document/storefront-hooks-actions-filters/
+add_filter('storefront_credit_link', '__return_false');
+add_filter('storefront_copyright_text', '__return_false');
 
-    <?php if (!empty($links_output)) { ?>
-    <br />
-    <?php echo wp_kses_post($links_output); ?>
-    <?php } ?>
-</div><!-- .site-info -->
-<?php
-        }
-    }
+//_tn - REMOVE THE MOBILE MENU THAT FIXED TOWARDS THE BOTTOM OF THE WOCOMMERCE SCREEN | THIS IS HOW YOU PROPERLY REMOVE AN ACTION THAT IS CURRENTLY BEING ADDED IN PARENT THEME
+add_action('storefront_footer', 'remove_storefront_handheld_footer_bar');
+function remove_storefront_handheld_footer_bar()
+{
+    remove_action('storefront_footer', 'storefront_handheld_footer_bar', 999);
+}

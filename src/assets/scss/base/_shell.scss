@@ -16,6 +16,14 @@ DETAILED BRANDING STEPS:
 - alreadyset.adjust footer colors in customizer
 - done.remove the credit in footer via add_action | //turn off store credit text based on codition | https://wordpress.org/support/topic/storefront-code-used-to-remove-credit/
 - done.reshaped the footer shell via SASS
+- done.identify all storefront hooks and visually see them on page
+- done.register a new navigation menu via code and then in the UI
+- now.modify the header.php to represent the placement of our new navigation. 
+- done.add scroll-top-btn to header.php 
+- done.properly configure jquery to work in WordPress and run scroll top button | https://stackoverflow.com/a/7434984/957186
+- done.confirm that our sass colors and basic elements are being applied. 
+- done.create an additional "sidebar" for the home page (front_page()) that talks about the seller.
+- 
 - rebuild the navigation menu, along with the hamburger icon, shopping basket and total
 - Add custom products
 - the WP Sample page (or shop page???) will have its own custom page template to allow a listing of WP_Query of products & AND! a custom sidebar widget for the bottom of the loop for the "about" section.
@@ -34,34 +42,98 @@ html {
         }
 
         .site-footer {
-            padding:0;
+            padding: 0;
 
             .footer-widgets {
                 //SET NORMAL SIZE FOR IMAGES IN FOOTER
-                max-width:100%;
-                padding:0;
+                max-width: 100%;
+                padding: 0;
+
                 .widget {
-                    margin:1em 0;
-                    text-align:center;
+                    margin: 1em 0;
+                    text-align: center;
+
                     .widget-title {
-                        font-family:$font-fam-fira;
-                        font-size:$font-small;
+                        font-family: $font-fam-fira;
+                        font-size: $font-small;
                         font-weight: 500;
-                        color:$theme-dark;
-                        border-bottom:none;
+                        color: $theme-dark;
+                        border-bottom: none;
                     }
+
                     .textwidget.custom-html-widget {
-                        text-align:center;
+                        text-align: center;
+
                         img {
-                            margin:0 auto;
+                            margin: 0 auto;
                         }
-                    }                    
+                    }
                 }
             }
 
             .site-info {
-                display:none;
+                display: none;
             }
         }
+
+        .mhook {
+            opacity: 0.8;
+            -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
+            box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
+        }
+
+        .scroll-top-btn {
+            display: none;
+            position: fixed;
+            bottom: 1.25em;
+            right: 1.875em;
+            z-index: 99;
+            font-size: 1em;
+            border: none;
+            outline: 0;
+        }
+
+        .entry-header {
+            .entry-title {
+                font-weight: 300;
+            }
+        }
+
+        .entry-content {
+            p {
+                font-family: $font-fam-fira;
+                font-weight: 200;
+            }
+        }
+
+        #{headings(1,6)} {
+            margin: 0;
+        }
+
+        #{headings(1)} {
+            font-size: 2rem;
+        }
+
+        //ABOUT THE SELLER
+        .mabout {
+
+            //FANCY QUOTE
+            .quote {
+                font-size: 7em;
+                font-family: $font-fam-sec;
+                line-height: 1;
+                -webkit-transform: rotate(-180deg);
+                -moz-transform: rotate(-180deg);
+                -o-transform: rotate(-180deg);
+                transform: rotate(-180deg);
+                ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+                filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+            }
+
+            p {
+                font-weight: lighter;
+            }
+        }
+
     }
 }

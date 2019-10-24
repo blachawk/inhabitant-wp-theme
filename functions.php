@@ -6,4 +6,5 @@ require_once 'lib/setup-sidebars.php';   //_tn - helpful for content areas like 
 require_once 'lib/setup-navigation.php'; //_tn - create our own custom navigation menu on top of page
 require_once 'lib/helper-actions.php';   //_tn - create custom actions to add to the project
 require_once 'lib/helper-filters.php';   //_tn - create custom filters to add to the project
-require_once 'lib/helper-woohooks.php';  //_tn - tap into woocommerce actions and filters directly | https://docs.woocommerce.com/document/introduction-to-hooks-actions-and-filters/
+require_once 'lib/helper-storefront-hooks.php';  //_tn - tap into storefront actions and filters directly | https://docs.woocommerce.com/document/introduction-to-hooks-actions-and-filters/
+require_once 'lib/helper-storefront-functions.php'; //_tn - override storefront functions

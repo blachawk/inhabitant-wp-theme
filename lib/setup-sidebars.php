@@ -18,7 +18,6 @@ add_action('widgets_init', '_tn_sidebar_aboutus_reg');
 //_tn - DISPLAY [ABOUT US] SIDEBAR
 function _tn_sidebar_aboutus_display()
 {
-    echo 'test widget connection';
     dynamic_sidebar('aboutus-sidebar');
 }
 add_action('storefront_sidebar', '_tn_sidebar_aboutus_display', 1);

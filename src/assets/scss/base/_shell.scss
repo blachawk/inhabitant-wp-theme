@@ -25,9 +25,9 @@ DETAILED BRANDING STEPS:
 - done.create an additional "sidebar" for the home page (front_page()) that talks about the seller.
 - done.completely remove the default navigation so that we can build up our own custom nav | https://wordpress.org/support/topic/remove-nav-links-from-header/
 - pending.  now re-arrange the functions hooked into storefront header and test | https://stackoverflow.com/a/37758434/957186
-- rebuild the navigation menu, along with the hamburger icon, shopping basket and total
-- Add custom products
-- the WP Sample page (or shop page???) will have its own custom page template to allow a listing of WP_Query of products & AND! a custom sidebar widget for the bottom of the loop for the "about" section.
+- next.rebuild the navigation menu, along with the hamburger icon, shopping basket and total
+- next.Add custom products
+- next.the WP Sample page (or shop page???) will have its own custom page template to allow a listing of WP_Query of products & AND! a custom sidebar widget for the bottom of the loop for the "about" section.
 
 */
 
@@ -35,19 +35,114 @@ html {
     body {
         font-family: $font-fam-fira;
 
-        .site-branding {
-            .site-title {
-                font-family: $font-fam-mplus;
-                font-size: $font-xlarge;
+        //GLOABLS   
+        #{headings(1,6)} {
+            margin: 0;
+        }
+
+        #{headings(1)} {
+            font-size: 2rem;
+        }
+
+        //DETECT STOREFRONT HOOK AREAS
+        .mhook {
+            display: none;
+            opacity: 0.8;
+            -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
+            box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
+        }
+
+        //ANIMATE SPECIFIC ELEMENTS TO FADE IN/OUT
+        .manimate {
+            opacity: 0;
+            transition: opacity 0s;
+
+            &.show {
+                opacity: 1;
+                transition: opacity .2s;
+                padding-bottom: 1rem;
             }
         }
 
+        //PAGE SCROLL BUTTON 
+        .scroll-top-btn {
+            display: none;
+            position: fixed;
+            bottom: 1.25em;
+            right: 1.875em;
+            z-index: 99;
+            font-size: 1em;
+            border: none;
+            outline: 0;
+        }
+
+        //HEADER
+            //OVERRIDE COL-FULL
+            .col-full {
+                max-width: initial;
+                padding: 0;
+            }
+
+            //SITE TITLE
+            .site-branding {
+                .site-title {
+                    font-family: $font-fam-mplus;
+                    font-size: $font-xlarge;
+                }
+            }
+
+            //HAMBURGER ICON
+            .mhamberger {
+                position: fixed !important;
+                top: 0;
+                right: 0;
+
+                //ANIMATION
+                .navbar-toggler {
+
+                    opacity: 0.9;
+
+                    &:focus {
+                        outline: #fff 1px dotted;
+                    }
+
+                    .navbar-toggler-icon {
+                        background-image: none !important;
+
+                        &:after,
+                        &:before {
+                            background-color: #fff;
+                            border-radius: 1px;
+                            content: '';
+                            display: block;
+                            height: 3px;
+                            margin: 7px 0;
+                            transition: all .2s ease-in-out;
+                        }
+                    }
+
+                    &[aria-expanded="true"] {
+                        .navbar-toggler-icon {
+                            &:after {
+                                transform: translateY(-4px) rotate(135deg);
+                            }
+
+                            &:before {
+                                transform: translateY(6px) rotate(-135deg);
+                            }
+                        }
+                    }
+                }
+            }
+
+        //FOOTER
         .site-footer {
             padding: 0;
+            margin: 2rem 0;
 
             .footer-widgets {
                 //SET NORMAL SIZE FOR IMAGES IN FOOTER
-                max-width: 100%;
+                //max-width: 100%;
                 padding: 0;
 
                 .widget {
@@ -77,47 +172,24 @@ html {
             }
         }
 
-        .mhook {
-            opacity: 0.8;
-            -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
-            box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
-        }
 
-        .scroll-top-btn {
-            display: none;
-            position: fixed;
-            bottom: 1.25em;
-            right: 1.875em;
-            z-index: 99;
-            font-size: 1em;
-            border: none;
-            outline: 0;
-        }
+        //MAIN SITE CONTENT
+        .content-area {
+            float: none !important;
 
-        .entry-header {
-            .entry-title {
-                font-weight: 300;
+            .site-content {
+                .entry-content {
+                    p {
+                        font-family: $font-fam-fira;
+                        font-weight: 200;
+                    }
+                }
             }
         }
 
-        .entry-content {
-            p {
-                font-family: $font-fam-fira;
-                font-weight: 200;
-            }
-        }
-
-        #{headings(1,6)} {
-            margin: 0;
-        }
-
-        #{headings(1)} {
-            font-size: 2rem;
-        }
-
-        //ABOUT THE SELLER
+        //WIDGET - ABOUT THE SELLER
         .mabout {
-
+        
             //FANCY QUOTE
             .quote {
                 font-size: 7em;

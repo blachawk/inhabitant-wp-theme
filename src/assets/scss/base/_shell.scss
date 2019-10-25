@@ -44,12 +44,12 @@ html {
             font-size: 2rem;
         }
 
-          //OVERRIDE COL-FULL
-          .col-full {
+        //OVERRIDE COL-FULL
+        .col-full {
 
             @media (max-width: 330px) {
-            padding: 0.1rem;
-            margin: 0.1rem;
+                padding: 0.1rem;
+                margin: 0.1rem;
             }
         }
 
@@ -84,12 +84,12 @@ html {
             border: none;
             outline: 0;
         }
-        
+
         //SITE TITLE
         .site-branding {
-            width:initial;
-            margin-bottom:0;
-         
+            width: initial;
+            margin-bottom: 0;
+
 
             .site-title {
                 font-family: $font-fam-mplus;
@@ -125,13 +125,13 @@ html {
             }
         }
 
-        //HAMBURGER ICON
+        //HAMBURGER ICON AREA
         .mhamberger {
             position: fixed !important;
             top: 0;
             right: 0;
 
-            //ANIMATION
+            //ANIMATION FOR LINES 
             .navbar-toggler {
 
                 opacity: 0.9;
@@ -167,7 +167,34 @@ html {
                     }
                 }
             }
+
+            //MINICART
+            .site-header-cart {
+                .cart-contents {
+                    padding:1rem 0;
+                    margin: 0.125em 0;
+                    outline: $m-color-grey-dark 1px dotted;
+                    &:after {
+                       display:none; 
+                    }
+                    .woocommerce-Price-amount,
+                    .woocommerce-Price-currencySymbol {
+                        display:none;
+                    }
+                    .count {
+                        opacity:1;
+                        font-size:1rem;
+                    }
+                    .count:before {
+                        content: "Cart "; 
+                        color:$m-color-gold;
+
+                    }
+                }
+            }
         }
+
+
 
         //FOOTER
         .site-footer {

@@ -147,12 +147,13 @@ function _tn_after_footer()
     echo '<p class="btn btn-sm bg-primary text-light rounded-0 mhook">st-hook after footer</p>';
 }
 
-//_tn - REMOVE CART FROM HOME PAGE
+//_tn - REMOVE CART FROM  DEFAULT LOCATION AND ADD IT TO MY CUSTOM HEADER.PHP LOCATION
 function remove_sf_actions()
 {
     remove_action('storefront_header', 'storefront_header_cart', 60);
+    add_action('_tn_do_mini_cart', 'storefront_header_cart', 1);
 }
-//add_action('init', 'remove_sf_actions');
+add_action('init', 'remove_sf_actions');
 
 //////////_tn - OFFICIAL STOREFRONT FILTERS
 
@@ -184,7 +185,7 @@ function my_theme_remove_storefront_standard_functionality()
     //storefront_homepage_content_styles
     //storefront_google_font_families
 
-    //_tn - I BELIEVE THIS IS THE MENU NAVIGATION DISPLAYED ON ACTUAL PRODUCT PAGES....TEST
+    //_tn - I BELIEVE THIS IS THE MENU NAVIGATION DISPLAYED ON ACTUAL PRODUCT PAGES....TEST WHEN WE GET THERE...
     // add_filter('storefront_navigation_markup_template', function () {
     //     //return '';
     // });

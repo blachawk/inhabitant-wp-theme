@@ -27,13 +27,17 @@
 
         <?php do_action('storefront_before_header'); ?>
 
-        <header id="masthead" class="site-header pt-0 b-0 border-0" role="banner" style="<?php storefront_header_styles(); ?>">
+        <header id="masthead" class="site-header pt-0 b-0 border-0" role="banner"
+            style="<?php storefront_header_styles(); ?>">
             <!--BEGIN MENU-->
             <div class="container-fluid p-0 m-0">
                 <div class="row">
                     <div class="col">
-                    
-                    <?php do_action('_tn_do_site_title'); ?>
+
+                        <?php
+                        // _tn - CUSTOM DO_ACTION
+                        do_action('_tn_do_site_title');
+                        ?>
 
                         <!--SITE MAIN MENU LINKS-->
                         <div class="pos-f-t fixed-top">
@@ -59,15 +63,19 @@
                             </div>
 
                             <nav class="navbar navbar-dark mhamberger d-flex align-items-end flex-column">
-                                
+
                                 <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse"
-                                data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
+                                    data-target="#navbarToggleExternalContent"
+                                    aria-controls="navbarToggleExternalContent" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
                                 </button>
 
                                 <div class="bg-dark my-3 px-2 text-center rounded">
-                                    <p class="p-0 m-0"><a class="position-relative text-light" href="#">Cart <span class="text-warning pl-2">10</span></a></p>
+                                    <?php
+                                    // _tn - CUSTOM DO_ACTION
+                                    do_action('_tn_do_mini_cart');
+                                    ?>
                                 </div>
                             </nav>
                         </div>

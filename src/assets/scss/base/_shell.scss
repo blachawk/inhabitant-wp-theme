@@ -44,6 +44,15 @@ html {
             font-size: 2rem;
         }
 
+          //OVERRIDE COL-FULL
+          .col-full {
+
+            @media (max-width: 330px) {
+            padding: 0.1rem;
+            margin: 0.1rem;
+            }
+        }
+
         //DETECT STOREFRONT HOOK AREAS
         .mhook {
             display: none;
@@ -76,64 +85,93 @@ html {
             outline: 0;
         }
 
-        //HEADER
-            //OVERRIDE COL-FULL
-            .col-full {
-                max-width: initial;
-                padding: 0;
-            }
+        .site-header {
+            border:none;
+        }
 
-            //SITE TITLE
-            .site-branding {
-                .site-title {
-                    font-family: $font-fam-mplus;
-                    font-size: $font-xlarge;
+        //SITE TITLE
+        .site-branding {
+            width:initial;
+            margin-bottom:0;
+         
+
+            .site-title {
+                font-family: $font-fam-mplus;
+                font-size: $font-xlarge;
+
+                @media (max-width: 330px) {
+                    font-size: 2rem;
+                    /*1rem = 16px*/
                 }
-            }
 
-            //HAMBURGER ICON
-            .mhamberger {
-                position: fixed !important;
-                top: 0;
-                right: 0;
 
-                //ANIMATION
-                .navbar-toggler {
-
-                    opacity: 0.9;
+                a {
+                    &:hover {
+                        text-decoration-color: $m-color-white;
+                        border-bottom: 0.125em solid $m-color-gold;
+                    }
 
                     &:focus {
-                        outline: #fff 1px dotted;
+                        outline-color: $m-color-white;
                     }
+                }
+            }
+        }
 
+        //TOP MENU
+        #navbarToggleExternalContent {
+
+            //OVERRIDE COL-FULL
+            .col-full {
+                max-width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+        }
+
+        //HAMBURGER ICON
+        .mhamberger {
+            position: fixed !important;
+            top: 0;
+            right: 0;
+
+            //ANIMATION
+            .navbar-toggler {
+
+                opacity: 0.9;
+
+                &:focus {
+                    outline: #fff 1px dotted;
+                }
+
+                .navbar-toggler-icon {
+                    background-image: none !important;
+
+                    &:after,
+                    &:before {
+                        background-color: #fff;
+                        border-radius: 1px;
+                        content: '';
+                        display: block;
+                        height: 3px;
+                        margin: 7px 0;
+                        transition: all .2s ease-in-out;
+                    }
+                }
+
+                &[aria-expanded="true"] {
                     .navbar-toggler-icon {
-                        background-image: none !important;
-
-                        &:after,
-                        &:before {
-                            background-color: #fff;
-                            border-radius: 1px;
-                            content: '';
-                            display: block;
-                            height: 3px;
-                            margin: 7px 0;
-                            transition: all .2s ease-in-out;
+                        &:after {
+                            transform: translateY(-4px) rotate(135deg);
                         }
-                    }
 
-                    &[aria-expanded="true"] {
-                        .navbar-toggler-icon {
-                            &:after {
-                                transform: translateY(-4px) rotate(135deg);
-                            }
-
-                            &:before {
-                                transform: translateY(6px) rotate(-135deg);
-                            }
+                        &:before {
+                            transform: translateY(6px) rotate(-135deg);
                         }
                     }
                 }
             }
+        }
 
         //FOOTER
         .site-footer {
@@ -189,7 +227,8 @@ html {
 
         //WIDGET - ABOUT THE SELLER
         .mabout {
-        
+            min-width: 300px;
+
             //FANCY QUOTE
             .quote {
                 font-size: 7em;
@@ -207,6 +246,5 @@ html {
                 font-weight: lighter;
             }
         }
-
     }
 }

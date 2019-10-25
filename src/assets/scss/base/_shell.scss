@@ -23,7 +23,8 @@ DETAILED BRANDING STEPS:
 - done.properly configure jquery to work in WordPress and run scroll top button | https://stackoverflow.com/a/7434984/957186
 - done.confirm that our sass colors and basic elements are being applied. 
 - done.create an additional "sidebar" for the home page (front_page()) that talks about the seller.
-- 
+- done.completely remove the default navigation so that we can build up our own custom nav | https://wordpress.org/support/topic/remove-nav-links-from-header/
+- pending.  now re-arrange the functions hooked into storefront header and test | https://stackoverflow.com/a/37758434/957186
 - rebuild the navigation menu, along with the hamburger icon, shopping basket and total
 - Add custom products
 - the WP Sample page (or shop page???) will have its own custom page template to allow a listing of WP_Query of products & AND! a custom sidebar widget for the bottom of the loop for the "about" section.

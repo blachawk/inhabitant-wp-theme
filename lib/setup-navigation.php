@@ -9,3 +9,12 @@ function _tn_register_menus()
     ]);
 }
 add_action('init', '_tn_register_menus');
+
+// function _tn_header()
+// {
+//     wp_nav_menu([
+//         'theme_location' => 'primary',
+//         'container' => 'false',
+//     ]);
+// }
+// add_action('storefront_header', '_tn_header');

@@ -27,7 +27,7 @@
 
         <?php do_action('storefront_before_header'); ?>
 
-        <header id="masthead" class="site-header" role="banner" style="<?php storefront_header_styles(); ?>">
+        <header id="masthead" class="site-header pt-0 b-0 border-0" role="banner" style="<?php storefront_header_styles(); ?>">
             <!--BEGIN MENU-->
             <div class="container-fluid p-0 m-0">
                 <div class="row">

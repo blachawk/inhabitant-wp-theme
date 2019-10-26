@@ -79,6 +79,6 @@ jQuery(document).ready(function($){
     // now you can use jQuery code here with $ shortcut formatting
     // this will execute after the document is fully loaded
     // anything that interacts with your html should go here
-    testjs()
+    testjs();
     scrollbackup();
 }); 

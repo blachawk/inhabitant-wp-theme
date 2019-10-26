@@ -1,6 +1,6 @@
 <?php
 
-//_tn - OVERRIDE STOREFRONT FUNCTIONS
+/////////////////_tn - OVERRIDE STOREFRONT FUNCTIONS
 
 //_tn - OVERRIDE CART ON TOP OF PAGE | ADD BS4 CLASSES
 if (!function_exists('storefront_header_cart')) {
@@ -51,8 +51,6 @@ if (!function_exists('storefront_site_title_or_logo')) {
             $logo = get_custom_logo();
             $html = is_home() ? '<h1 class="logo">'.$logo.'</h1>' : $logo;
         } else {
-            // <h1 class="px-3 py-4 text-uppercase mtitle"><a class="text-dark" href="/">Inhabitant</a></h1>
-
             $tag = is_home() ? 'h1' : 'div';
 
             $html = '<'.esc_attr($tag).' class="beta site-title px-3 py-0 text-uppercase mtitle"><a class="text-dark" href="'.esc_url(home_url('/')).'" rel="home">'.esc_html(get_bloginfo('name')).'</a></'.esc_attr($tag).'>';

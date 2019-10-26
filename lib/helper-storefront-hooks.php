@@ -9,6 +9,8 @@
  * storefront_homepage_after_featured_products_title
  * storefront_homepage_after_popular_products_title
  * storefront_homepage_after_on_sale_products_title.
+ * storefront_homepage_content_styles
+ * storefront_navigation_markup_template.
  */
 
 /**
@@ -148,17 +150,17 @@ function _tn_after_footer()
     echo '<p class="btn btn-sm bg-primary text-light rounded-0 mhook">st-hook after footer</p>';
 }
 
-//_tn - REMOVE CART FROM  DEFAULT LOCATION AND ADD IT TO MY CUSTOM HEADER.PHP LOCATION
-function remove_sf_actions()
+//_tn - REMOVE MINICART | ADD IT BACK INTO MY CUSTOM ACTION LOCATION
+function _tn_adjust_minicart()
 {
     remove_action('storefront_header', 'storefront_header_cart', 60);
     add_action('_tn_do_mini_cart', 'storefront_header_cart', 1);
 }
-add_action('init', 'remove_sf_actions');
+add_action('init', '_tn_adjust_minicart');
 
 //////////_tn - OFFICIAL STOREFRONT FILTERS
 
-//_tn APPEND OUR CUSTOM GOOGLE FONTS IN STOREFRONT GOOGLE FONTS
+//_tn - APPEND OUR CUSTOM GOOGLE FONTS IN STOREFRONT GOOGLE FONTS | http://www.fix-css.com/2016/09/remove-google-fonts-form-woo-storefront-theme/
 add_filter('storefront_google_font_families', '_tn_gfonts');
 
 function _tn_gfonts($family)
@@ -168,27 +170,6 @@ function _tn_gfonts($family)
     return $family;
 }
 
-//_tn - REMOVE STOREFRONT CREDIT/COPY IN FOOTER | https://wordpress.org/support/topic/storefront-code-used-to-remove-credit/  | https://docs.woocommerce.com/document/storefront-hooks-actions-filters/
+//_tn - REMOVE STOREFRONT CREDIT/COPY FROM FOOTER | https://wordpress.org/support/topic/storefront-code-used-to-remove-credit/  | https://docs.woocommerce.com/document/storefront-hooks-actions-filters/
 add_filter('storefront_credit_link', '__return_false');
 add_filter('storefront_copyright_text', '__return_false');
-
-//_tn - BELOW WE ARE PLAYING WITH THE POSSIBILITY OF REDUCING UNNEEEDED STYLES | TEST!
-//add_filter('storefront_customizer_css', '__return_false'); // | https://stackoverflow.com/a/37403115/957186
-//add_filter('storefront_customizer_woocommerce_css', '__return_false'); // | https://stackoverflow.com/a/37403115/957186
-
-function my_theme_remove_storefront_standard_functionality()
-{
-    //remove customizer inline styles from parent theme as I don't need it.
-    //set_theme_mod('storefront_styles', '');
-    //set_theme_mod('storefront_woocommerce_styles', '');
-}
-    add_action('init', 'my_theme_remove_storefront_standard_functionality');
-
-    //_tn - PLAY WITH THE FOLLOWING WHEN TIME PERMITS...
-    //storefront_homepage_content_styles
-    //storefront_google_font_families
-
-    //_tn - I BELIEVE THIS IS THE MENU NAVIGATION DISPLAYED ON ACTUAL PRODUCT PAGES....TEST WHEN WE GET THERE...
-    // add_filter('storefront_navigation_markup_template', function () {
-    //     //return '';
-    // });

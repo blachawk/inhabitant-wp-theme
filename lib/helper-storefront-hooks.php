@@ -158,13 +158,15 @@ add_action('init', 'remove_sf_actions');
 
 //////////_tn - OFFICIAL STOREFRONT FILTERS
 
-//_tn - HOW MANY FOOTER WIDGETS "DO WE REALLY NEED" IN WP-ADMIN
-add_filter('storefront_footer_widget_rows', function () {
-    return '1';
-});
-add_filter('storefront_footer_widget_columns', function () {
-    return '1';
-});
+//_tn APPEND OUR CUSTOM GOOGLE FONTS IN STOREFRONT GOOGLE FONTS
+add_filter('storefront_google_font_families', '_tn_gfonts');
+
+function _tn_gfonts($family)
+{
+    $family['fira-mplus-secular'] = 'Fira+Sans+Condensed:200, 300,400|M+PLUS+1p:500,700|Secular+One&display=swap';
+
+    return $family;
+}
 
 //_tn - REMOVE STOREFRONT CREDIT/COPY IN FOOTER | https://wordpress.org/support/topic/storefront-code-used-to-remove-credit/  | https://docs.woocommerce.com/document/storefront-hooks-actions-filters/
 add_filter('storefront_credit_link', '__return_false');

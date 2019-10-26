@@ -19,7 +19,7 @@ function _tn_display_custom_nav()
         'name' => 'main-menu',
         'container' => 'div',
         'container_id' => 'inhabitant-menu',
-        'container_class' => 'bg-dark',
+        'container_class' => '',
         'menu_id' => '',
         'menu_class' => 'navbar-nav ml-auto px-2 px-lg-0 pb-2 text-lg-center',
         'before' => '',

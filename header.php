@@ -41,7 +41,7 @@
 
                         <!--SITE MAIN MENU LINKS-->
                         <div class="pos-f-t fixed-top">
-                            <div class="collapse manimate pb-0" id="navbarToggleExternalContent">
+                            <div class="collapse manimate pb-0 bg-dark" id="navbarToggleExternalContent">
                                 <?php
                                 /**
                                  * Functions hooked into storefront_header action.

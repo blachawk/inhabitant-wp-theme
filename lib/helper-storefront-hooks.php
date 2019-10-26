@@ -71,7 +71,8 @@ function _tn_before_header()
 add_action('storefront_header', '_tn_header');
 function _tn_header()
 {
-    echo '<p class="btn btn-sm bg-primary text-light rounded-0 mhook">st-hook header</p>';
+    //echo '<p class="btn btn-sm bg-primary text-light rounded-0 mhook">st-hook header</p>';
+    echo '<h5 class="text-info py-2 h5 text-center">Main Menu</h5><hr class="bg-success">';
     //REMOVE_ACTION, ADD_ACTION + CHANGE NUMBER
     //storefront_secondary_navigation()
     //storefront_primary_navigation_wrapper()

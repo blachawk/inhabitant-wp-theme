@@ -142,13 +142,21 @@ function _tn_after_footer()
     echo '<p class="btn btn-sm bg-primary text-light rounded-0 mhook">st-hook after footer</p>';
 }
 
-//_tn - REMOVE MINICART | ADD IT BACK INTO MY CUSTOM ACTION LOCATION
+
 function _tn_adjust_minicart()
 {
+    //REMOVE MINICART
     remove_action('storefront_header', 'storefront_header_cart', 60);
-    add_action('_tn_do_mini_cart', 'storefront_header_cart', 1);
+
+    //ADD IT BACK INTO MY CUSTOM ACTION LOCATION
+    $mpage = get_the_title();
+    if ($mpage != 'View Cart') {
+        add_action('_tn_do_mini_cart', 'storefront_header_cart', 1);
+    }
 }
-add_action('init', '_tn_adjust_minicart');
+
+    //https://codex.wordpress.org/Plugin_API/Action_Reference
+    add_action('wp', '_tn_adjust_minicart');
 
 //////////_tn - OFFICIAL STOREFRONT FILTERS
 

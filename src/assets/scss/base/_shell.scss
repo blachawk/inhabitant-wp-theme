@@ -28,7 +28,8 @@ DETAILED BRANDING STEPS:
 - done.rebuild the navigation menu, along with the hamburger icon, shopping basket and total
 - done.properly wire up google fonts to storefront instead of creating a 2nd instanced of it! via hooks!
 - done.Add a custom products | the WP Sample page (or shop page???) will have its own custom page template to allow a listing of WP_Query of products & AND! a custom sidebar widget for the bottom of the loop for the "about" section.
-- pending.now add custom loop to dynamically display products on our new custom template!
+- done.now add custom loop to dynamically display products on our new custom template! via WC Product class
+- append cart quanity to menu item "View Cart" so mobile users can see the count on dropdown menu.
 - pending.shop page is a special page.  Try to duplicate some of its logic onto my custom template | https://stackoverflow.com/questions/37407888/woocommerce-shop-page-custom-template
 
 */
@@ -124,6 +125,12 @@ html {
                 max-width: 100%;
                 padding: 0;
                 margin: 0;
+            }
+
+            a {
+                &:focus {
+                    outline-color: $theme-dark;
+                }
             }
         }
 

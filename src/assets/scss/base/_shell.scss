@@ -246,6 +246,13 @@ html {
             float: none !important;
 
             .site-main {
+
+                a {
+                    &:focus {
+                        outline-color: $theme-light;
+                    }
+                }
+
                 //content via wp-admin
                 .entry-content {
                     p {

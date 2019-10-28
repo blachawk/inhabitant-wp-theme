@@ -173,7 +173,8 @@ function _tn_gfonts($family)
 //_tn - REMOVE STOREFRONT CREDIT/COPY FROM FOOTER | https://wordpress.org/support/topic/storefront-code-used-to-remove-credit/  | https://docs.woocommerce.com/document/storefront-hooks-actions-filters/
 add_filter('storefront_credit_link', '__return_false');
 add_filter('storefront_copyright_text', '__return_false');
-
+//_tn - REMOVE BREADCRUMB
+add_filter('woocommerce_get_breadcrumb', '__return_false');
 
     //_tn - CHANGE NUMBER OF PRODUCTS DISPLAYED IN A SINGLE ROW
         // add_filter('storefront_loop_columns', 'loop_columns');

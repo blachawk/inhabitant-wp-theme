@@ -1,6 +1,6 @@
 <?php
 
-//_tn - STOREFRONT THEME HOOKS WE CAN TAP INTO
+//_tn - STOREFRONT ACTIONS AND FILTERS
 
 /**
  * Dev - Added some new hooks to the homepage template tags:
@@ -15,12 +15,12 @@
 
 /**
  * _tn - IMPORTANT RESOURCES
- * C:\Users\lewisk\Documents\mTraining\klp\inhabitant.co\wp20191021\wp-content\themes\storefront\inc\storefront-template-hooks.php
+ * wp-content\themes\storefront\inc\storefront-template-hooks.php
  * https://stackoverflow.com/search?q=wordpress+storefront.
  * https://stackoverflow.com/questions/37745795/change-order-of-items-in-storefront-theme-header.
  */
 
- //_tn - BASED ON HEADER.PHP REARRANGE FUNCTIONS HOOKED INTO STOREFRONT HEADER AND TEST | https://stackoverflow.com/a/37758434/957186
+ //_tn - THROUGH HOOKS, WE CAN MODIFY FUNCTIONS | https://stackoverflow.com/a/37758434/957186
 
 /**
  * Functions hooked into storefront_header action.
@@ -47,14 +47,6 @@
  * @hooked woocommerce_breadcrumb - 10
  *
  * do_action( 'storefront_before_content' );
- */
-
-/*
- * //HOW TO MODIFY STOREFRONT ACTIONS
- * add_action( 'action_name', 'your_function_name' );
- * function your_function_name() {
- * // Your code
- * }
  */
 
 //////////_tn - OFFICIAL STOREFRONT ACTIONS
@@ -173,3 +165,10 @@ function _tn_gfonts($family)
 //_tn - REMOVE STOREFRONT CREDIT/COPY FROM FOOTER | https://wordpress.org/support/topic/storefront-code-used-to-remove-credit/  | https://docs.woocommerce.com/document/storefront-hooks-actions-filters/
 add_filter('storefront_credit_link', '__return_false');
 add_filter('storefront_copyright_text', '__return_false');
+
+
+    //_tn - CHANGE NUMBER OF PRODUCTS DISPLAYED IN A SINGLE ROW
+        // add_filter('storefront_loop_columns', 'loop_columns');
+        // function loop_columns() {
+        // return 1;
+    // }

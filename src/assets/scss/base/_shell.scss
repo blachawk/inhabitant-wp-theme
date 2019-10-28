@@ -196,8 +196,6 @@ html {
             }
         }
 
-
-
         //FOOTER
         .site-footer {
             padding: 0;
@@ -240,11 +238,46 @@ html {
         .content-area {
             float: none !important;
 
-            .site-content {
+            .site-main {
+                //content via wp-admin
                 .entry-content {
                     p {
                         font-family: $font-fam-fira;
                         font-weight: 200;
+                    }
+                }
+
+                //the product loop
+                .mproducts {
+                    p {
+                        margin:0.125rem;
+                    }
+
+                    a {
+                        img {
+                            border:solid 0.5em $m-color-grey-light;
+                        }
+                    }
+                    .add-to-cart {
+                        display:inline-block;
+                        margin: 0 auto;
+                        padding: 0.4em;
+                        font-size: 1em;
+                        font-family: $font-fam-fira;
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        text-decoration-color: $theme-light;
+                      
+                        //DARK VERSION
+                        font-weight:normal;
+                        color:$theme-light!important;
+                        background-color:$theme-dark;
+                        &:hover {
+                            color:$theme-primary!important;
+                            //DARK VERSION
+                            color:$theme-warning!important;
+                            text-decoration-color: $theme-dark;
+                        }
                     }
                 }
             }

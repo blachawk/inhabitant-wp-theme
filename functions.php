@@ -9,4 +9,5 @@ require_once 'lib/helper-filters.php';   //_tn - create custom filters to add to
 require_once 'lib/helper-storefront-hooks.php';  //_tn - tap into storefront actions and filters directly | https://docs.woocommerce.com/document/introduction-to-hooks-actions-and-filters/
 require_once 'lib/helper-storefront-functions.php'; //_tn - override storefront functions
 require_once 'lib/helper-storefront-widgets.php'; //_tn - override storefront widgets
-require_once 'lib/helper-storefront-product-listing.php'; //_tn - override the woocommerce presentation for product listings
+require_once 'lib/helper-woocom-product-listing.php'; //_tn - create our own woocommerce product loop
+require_once 'lib/setup-toolbar.php'; //_tn - intentionally hide the WP toolbar when logged in.

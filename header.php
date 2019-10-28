@@ -62,7 +62,7 @@
                                 ?>
                             </div>
 
-                            <nav class="navbar navbar-dark mhamberger d-flex align-items-end flex-column">
+                            <nav class="navbar navbar-dark mhamberger d-flex align-items-end flex-column pt-1">
 
                                 <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse"
                                     data-target="#navbarToggleExternalContent"

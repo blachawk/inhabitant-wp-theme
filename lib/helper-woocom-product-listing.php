@@ -128,8 +128,8 @@ function _tn_storefront_product_loop()
     // Get most recently modified products.
     $args = array(
         'orderby' => 'modified',
-        'order' => 'DESC',
-        'status' => -1 //get all products
+        'order' => 'ASC',
+        'status' => 'publish'
     );
     $products = wc_get_products($args);
         

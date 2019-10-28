@@ -247,6 +247,7 @@ html {
 
             .site-main {
 
+                //REMOVE LINKS FROM DISPLAYING AS PURPLE ON FOCUS
                 a {
                     &:focus {
                         outline-color: $theme-light;

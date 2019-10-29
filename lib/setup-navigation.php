@@ -48,15 +48,16 @@ function _tn_append_nav_item($items, $args)
     //RETRIEVE WOOCOMMERCE CART QUANITTY VALUE
     $woocount = WC()->cart->get_cart_contents_count(); //no need for globals
     $woocountquantity = sprintf(_n('%s item', '%s items', $woocount, '_tn'), $woocount);
- 
-    //DO NOT PROCESS THIS ON CART PAGE, AS THAT PAGE WILL PROCESS QUANTITIES ALL ON ITS OWN
+
+    //CALL CUSTOM ACTION EVERYWHERE EXCEPT ON VIEW CART PAGE
     $mpage = get_the_title();
-    if ($mpage != 'View Cart') {
-        if ($args->name == 'main-menu') {
+    if ('View Cart' != $mpage) {
+        if ('main-menu' == $args->name) {
             //APPEND QAUNTITY TO MY EXISTING MENU ITEM
-            $items = str_replace("View Cart", "View Cart | <span class='text-warning'>". $woocountquantity . '</span>', $items);
+            $items = str_replace('View Cart', "View Cart | <span class='text-warning'>".$woocountquantity.'</span>', $items);
         }
     }
+
     return $items;
 }
   add_filter('wp_nav_menu_items', '_tn_append_nav_item', 10, 2);

@@ -68,8 +68,29 @@ function disableLinks() {
 function bs4actions() {
     //INITIATE BS4 TOOLTIPS | https://getbootstrap.com/docs/4.0/components/tooltips/
     //use css to disable them on mobile devices | https://stackoverflow.com/a/26689836/957186
-    $('[data-toggle="tooltip"]').tooltip();
+    //$('[data-toggle="tooltip"]').tooltip();
+
+    //TOGGLE TOP MENU ON EVENT CALL
+    $(document).click(
+        function (e) {
+            //console.log('we are clicking');
+            var target = $(e.target);
+            var menuOpen = $("#navbarToggleExternalContent.collapse").hasClass("show");
+            //GETTING ERROR - MAKE SURE JQUERY IS LOADING BEFORE BOOTSTRAP JS IN NPM AND WORDPRESS
+            //menuOpen.collapse('hide');
+
+        }
+    );
 }
+
+$(function(){
+    //$(".dropdown-toggle").dropdown('toggle'); // this works
+    $('#click').click(function(e){
+        e.stopPropagation();
+      $(".dropdown-toggle").dropdown('toggle');// this doesn't
+    });
+  });
+
 
 
 
@@ -81,4 +102,5 @@ jQuery(document).ready(function($){
     // anything that interacts with your html should go here
     testjs();
     scrollbackup();
+    bs4actions();
 }); 

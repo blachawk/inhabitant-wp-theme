@@ -71,11 +71,13 @@
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
 
-                                <div class="bg-dark my-3 px-2 text-center rounded">
-                                    <?php
-                                    // _tn - CUSTOM DO_ACTION
-                                    do_action('_tn_do_mini_cart');
-                                    ?>
+                                <!--INHABIT MINI-CART-->
+                                <div class="inhabit-mini-cart bg-dark my-3 px-2 text-center rounded">
+                                    <p class="p-0 m-0">
+                                        <?php
+                                        do_action('_tn_do_mini_cart');
+                                        ?>
+                                    </p>
                                 </div>
                             </nav>
                         </div>

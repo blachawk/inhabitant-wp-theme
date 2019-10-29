@@ -13,7 +13,7 @@ DETAILED BRANDING STEPS:
 - done.add custom favicon via add_action()
 - done.add google fonts via add_action()
 - done.remove search bar area | unregister widget in code 
-- alreadyset.adjust footer colors in customizer
+- done.unregister sidebars for footer column sidebars 2, 3, 4
 - done.remove the credit in footer via add_action | //turn off store credit text based on codition | https://wordpress.org/support/topic/storefront-code-used-to-remove-credit/
 - done.reshaped the footer shell via SASS
 - done.identify all storefront hooks and visually see them on page
@@ -29,8 +29,10 @@ DETAILED BRANDING STEPS:
 - done.properly wire up google fonts to storefront instead of creating a 2nd instanced of it! via hooks!
 - done.Add a custom products | the WP Sample page (or shop page???) will have its own custom page template to allow a listing of WP_Query of products & AND! a custom sidebar widget for the bottom of the loop for the "about" section.
 - done.now add custom loop to dynamically display products on our new custom template! via WC Product class
-- append cart quanity to menu item "View Cart" so mobile users can see the count on dropdown menu.
-- pending.shop page is a special page.  Try to duplicate some of its logic onto my custom template | https://stackoverflow.com/questions/37407888/woocommerce-shop-page-custom-template
+- done.append cart quanity to menu item "View Cart" so mobile users can see the count on dropdown menu.
+- done.removed the breadcrumb link via filters.
+- now.make the wp product detail page match the webpack product detail page
+- on-hold.shop page is a special page.  Try to duplicate some of its logic onto my custom template | https://stackoverflow.com/questions/37407888/woocommerce-shop-page-custom-template
 
 */
 
@@ -203,6 +205,15 @@ html {
             }
         }
 
+        //INHABIT MINI CART
+        .inhabit-mini-cart  {
+            display:block;
+            
+            @media (max-width: 330px) {
+                display:none;
+             }
+        }
+
         //FOOTER
         .site-footer {
             padding: 0;
@@ -246,6 +257,7 @@ html {
             float: none !important;
 
             .site-main {
+               // border:solid 1em purple;
 
                 //REMOVE LINKS FROM DISPLAYING AS PURPLE ON FOCUS
                 a {
@@ -254,7 +266,7 @@ html {
                     }
                 }
 
-                //content via wp-admin
+                //GENERAL CONTENT DISPLAYED
                 .entry-content {
                     p {
                         font-family: $font-fam-fira;
@@ -262,7 +274,7 @@ html {
                     }
                 }
 
-                //the product loop
+                //PRODUCT LOOP ON HOME PAGE
                 .mproducts {
                     p {
                         margin:0.125rem;
@@ -294,6 +306,13 @@ html {
                             text-decoration-color: $theme-dark;
                         }
                     }
+                }
+
+                //PRODUCT DETAIL PAGE ADJUSTMENTS | WHILE WE HAVE WOOCOMMERCE.CSS ACTIVE
+                .summary.entry-summary {
+                    float:none;
+                    width:100%;
+                    border:solid 1em orange;
                 }
             }
         }

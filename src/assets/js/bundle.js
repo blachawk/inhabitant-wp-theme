@@ -15,7 +15,7 @@ function testjs() {
 ////////////////
 //JQ - SCROLL TOP BTN
 function scrollbackup() {
-    
+
     //GET AND FADE ELEMENT
     var scrollTop = $(".scroll-top-btn");
     $(window).scroll(function () {
@@ -67,40 +67,37 @@ function disableLinks() {
 //JQ - RUN BS4 JS ACTIONS
 function bs4actions() {
     //INITIATE BS4 TOOLTIPS | https://getbootstrap.com/docs/4.0/components/tooltips/
-    //use css to disable them on mobile devices | https://stackoverflow.com/a/26689836/957186
+    //use css to disable on mobile devices | https://stackoverflow.com/a/26689836/957186
     //$('[data-toggle="tooltip"]').tooltip();
 
     //TOGGLE TOP MENU ON EVENT CALL
-    $(document).click(
-        function (e) {
-            //console.log('we are clicking');
-            var target = $(e.target);
-            var menuOpen = $("#navbarToggleExternalContent.collapse").hasClass("show");
-            //GETTING ERROR - MAKE SURE JQUERY IS LOADING BEFORE BOOTSTRAP JS IN NPM AND WORDPRESS
-            //menuOpen.collapse('hide');
-
+    $(document).click(function (e) {
+        e.stopPropagation();
+        var menuOpen = $("#navbarToggleExternalContent.collapse");
+        if (!$(e.target).closest(menuOpen).length) {
+            menuOpen.collapse('hide');
         }
-    );
+    });
 }
 
-$(function(){
+$(function () {
     //$(".dropdown-toggle").dropdown('toggle'); // this works
-    $('#click').click(function(e){
+    $('#click').click(function (e) {
         e.stopPropagation();
-      $(".dropdown-toggle").dropdown('toggle');// this doesn't
+        $(".dropdown-toggle").dropdown('toggle'); // this doesn't
     });
-  });
+});
 
 
 
 
 //_tn - THE PROPER WAY TO LOAD JQUERY IN WORDPRESS
 //_tn - RUN ALL SCRIPTS
-jQuery(document).ready(function($){
+jQuery(document).ready(function ($) {
     // now you can use jQuery code here with $ shortcut formatting
     // this will execute after the document is fully loaded
     // anything that interacts with your html should go here
     testjs();
     scrollbackup();
     bs4actions();
-}); 
+});

@@ -34,8 +34,9 @@ DETAILED BRANDING STEPS:
 - done.append cart quanity to menu item "View Cart" so mobile users can see the count on dropdown menu.
 - done.removed the breadcrumb link via filters.
 - now.make the wp product detail page match the webpack product detail page
-          experiment - detach description hook and place it below the product image hook | https://wordpress.org/support/topic/change-location-on-product-description-and-short-description/
-- on-hold.shop page is a special page.  Try to duplicate some of its logic onto my custom template | https://stackoverflow.com/questions/37407888/woocommerce-shop-page-custom-template
+- done.experiment - detach description hook and place it below the product image hook | https://wordpress.org/support/topic/change-location-on-product-description-and-short-description/
+- done. through wp-admin permalinks, set all product details pages under /shop/ so that its not category/ based in URL path.
+- next.shop page is a special page. customize its look and feel to do a 301 to the home page is someone goes there.
 
 */
 

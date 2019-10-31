@@ -99,6 +99,28 @@ add_action('wp', function () {
     }
 });
 
+//_tn - SWAP TITLE LOCAITON
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
+add_action('woocommerce_before_single_product_summary', 'woocommerce_template_single_title', 20);
+
+//_tn - SWAP PRODUCT FULL DESCRIPTION HOOK LOCATIONS
+remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
+function woocommerce_template_product_description()
+{
+    woocommerce_get_template('single-product/tabs/description.php');
+}
+add_action('woocommerce_before_single_product_summary', 'woocommerce_template_product_description', 30);
+
+//_tn - REMOVE PRODUCT META | THIS INCLUDES THE CATEGORY LINKS
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+
+//remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+//add_action( 'woocommerce_after_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+//remove_action('woocommerce_after_single_product_summary','');
+
+//remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+//add_action( 'woocommerce_single_product_summary', 'the_content', 20 );
+
 // add_action('storefront_before_site', '_tn_before_site');
 // function _tn_before_site()
 // {

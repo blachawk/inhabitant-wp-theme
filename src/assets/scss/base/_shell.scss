@@ -8,6 +8,8 @@
 
 /*
 DETAILED BRANDING STEPS:
+- done.setup virtual host | mysql db| .htaccess rules on wp/php | wp-admin settings | npm/gulp settings | woocommerce/storefront theme and plugin install | child theme 
+- done.initlize npm/sass
 - done.background color is good
 - done.title area | remove tagline
 - done.add custom favicon via add_action()
@@ -32,6 +34,7 @@ DETAILED BRANDING STEPS:
 - done.append cart quanity to menu item "View Cart" so mobile users can see the count on dropdown menu.
 - done.removed the breadcrumb link via filters.
 - now.make the wp product detail page match the webpack product detail page
+          experiment - detach description hook and place it below the product image hook | https://wordpress.org/support/topic/change-location-on-product-description-and-short-description/
 - on-hold.shop page is a special page.  Try to duplicate some of its logic onto my custom template | https://stackoverflow.com/questions/37407888/woocommerce-shop-page-custom-template
 
 */
@@ -251,7 +254,6 @@ html {
             }
         }
 
-
         //MAIN SITE CONTENT
         .content-area {
             float: none !important;
@@ -308,11 +310,25 @@ html {
                     }
                 }
 
+                //PRODUCT DETAIL PAGE ADJUSTMENTS | DESCRIPTION TITLE
+                .product.status-publish h2 {
+                    display:none;
+                } 
+                    
                 //PRODUCT DETAIL PAGE ADJUSTMENTS | WHILE WE HAVE WOOCOMMERCE.CSS ACTIVE
                 .summary.entry-summary {
                     float:none;
                     width:100%;
-                    border:solid 1em orange;
+                    //border:solid 1em orange;
+                }
+
+                input[type="number"] {
+                    outline-color: #fff;
+                    border:solid 1px #aaa;
+                }
+
+                .product p.price {
+                    margin:0;
                 }
             }
         }

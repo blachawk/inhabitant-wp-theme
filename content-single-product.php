@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying product content in the single-product.php template
+ * The template for displaying product content in the single-product.php template.
  *
  * This template can be overridden by copying it to yourtheme/woocommerce/content-single-product.php.
  *
@@ -13,15 +13,14 @@
  * _tn - https://www.sellwithwp.com/how-to-customize-woocommerce-product-pages-like-a-pro/
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates
+ *
  * @version 3.6.0
  */
-
 defined('ABSPATH') || exit;
 
 global $product;
 
-/**
+/*
  * Hook: woocommerce_before_single_product.
  *
  * @hooked wc_print_notices - 10
@@ -65,23 +64,21 @@ if (post_password_required()) {
     </div>
 
     <?php
-    /**
-     * Hook: woocommerce_after_single_product_summary.
-     *
-     * @hooked woocommerce_output_product_data_tabs - 10
-     * @hooked woocommerce_upsell_display - 15
-     * @hooked woocommerce_output_related_products - 20
-     */
+/**
+ * Hook: woocommerce_after_single_product_summary.
+ *
+ * @hooked woocommerce_output_product_data_tabs - 10
+ * @hooked woocommerce_upsell_display - 15
+ * @hooked woocommerce_output_related_products - 20
+ */
 
-         /**
- * Remove related products output
+/**
+ * Remove related products output.
  */
 //_tn - CUSTOMIZING PART OF THE PAGE
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
 do_action('woocommerce_after_single_product_summary');
-
-
 
     ?>
 </div>

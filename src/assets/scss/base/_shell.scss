@@ -323,11 +323,24 @@ html {
                     //border:solid 1em orange;
                 }
 
+                //PRODUCT DETAILS PAGE ADJUSTMENTS | QUANTITY INPUT NUMBER
                 input[type="number"] {
                     outline-color: #fff;
                     border:solid 1px #aaa;
                 }
 
+                //PRODUCT DETAILS PAGE ADJUSTMENTS | QUANTITY BOX
+                .qib-container .qib-button:not(#qib_id),
+                .qib-container .quantity input.qty:not(#qib_id) {
+                    background-color:$m-color-white;
+                }
+
+                //PRODUT DETAILS PAGE ADJUSTMENTS | ADD TO CART BUTTON
+                form.cart .qib-container + button[type="submit"]:not(#qib_id) {
+                 line-height:2;
+                }
+
+                //PRODUCT DETAILS PAGE | PRICE
                 .product p.price {
                     margin:0;
                 }

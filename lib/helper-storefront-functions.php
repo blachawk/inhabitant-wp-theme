@@ -53,7 +53,7 @@ if (!function_exists('storefront_site_title_or_logo')) {
         } else {
             $tag = is_home() ? 'h1' : 'div';
 
-            $html = '<'.esc_attr($tag).' class="beta site-title px-3 py-0 text-uppercase mtitle"><a class="text-dark" href="'.esc_url(home_url('/')).'" rel="home">'.esc_html(get_bloginfo('name')).'</a></'.esc_attr($tag).'>';
+            $html = '<'.esc_attr($tag).' class="beta site-title px-3 pt-0 pb-4 text-uppercase mtitle"><a class="text-dark" href="'.esc_url(home_url('/')).'" rel="home">'.esc_html(get_bloginfo('name')).'</a></'.esc_attr($tag).'>';
 
             if ('' !== get_bloginfo('description')) {
                 $html .= '<p class="site-description">'.esc_html(get_bloginfo('description', 'display')).'</p>';

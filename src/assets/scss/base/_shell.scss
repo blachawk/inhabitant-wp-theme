@@ -186,23 +186,27 @@ html {
             //MINICART
             .site-header-cart {
                 .cart-contents {
-                    padding:1rem 0;
+                    padding: 1rem 0;
                     margin: 0.125em 0;
                     outline: $m-color-grey-dark 1px dotted;
+
                     &:after {
-                       display:none; 
+                        display: none;
                     }
+
                     .woocommerce-Price-amount,
                     .woocommerce-Price-currencySymbol {
-                        display:none;
+                        display: none;
                     }
+
                     .count {
-                        opacity:1;
-                        font-size:1rem;
+                        opacity: 1;
+                        font-size: 1rem;
                     }
+
                     .count:before {
-                        content: "Cart "; 
-                        color:$m-color-gold;
+                        content: "Cart ";
+                        color: $m-color-gold;
 
                     }
                 }
@@ -210,12 +214,12 @@ html {
         }
 
         //INHABIT MINI CART
-        .inhabit-mini-cart  {
-            display:block;
-            
+        .inhabit-mini-cart {
+            display: block;
+
             @media (max-width: 330px) {
-                display:none;
-             }
+                display: none;
+            }
         }
 
         //FOOTER
@@ -255,97 +259,124 @@ html {
             }
         }
 
-        //MAIN SITE CONTENT
-        .content-area {
-            float: none !important;
+        //MAIN CONTENT WRAPPER
+        .site-content {
+            
+            //WC ALERT MESSAGE AREA
+            .woocommerce-message {
+                background-color: lightgoldenrodyellow;
+                color:#0f834d;
 
-            .site-main {
-               // border:solid 1em purple;
+                .button {
+                    color: darkgoldenrod;
+                    border-left: solid 0.325em darkgoldenrod;
 
-                //REMOVE LINKS FROM DISPLAYING AS PURPLE ON FOCUS
-                a {
+                    &:hover {
+                        color: goldenrod;
+                    }
+
                     &:focus {
-                        outline-color: $theme-light;
+                        outline-color: lightgoldenrodyellow;
                     }
                 }
+            }
 
-                //GENERAL CONTENT DISPLAYED
-                .entry-content {
-                    p {
-                        font-family: $font-fam-fira;
-                        font-weight: 200;
-                    }
-                }
+            //MAIN SITE CONTENT
+            .content-area {
+                float: none !important;
 
-                //PRODUCT LOOP ON HOME PAGE
-                .mproducts {
-                    p {
-                        margin:0.125rem;
-                    }
+                .site-main {
+                    // border:solid 1em purple;
 
+                    //REMOVE LINKS FROM DISPLAYING AS PURPLE ON FOCUS
                     a {
-                        img {
-                            border:solid 0.5em $m-color-grey-light;
+                        &:focus {
+                            outline-color: $theme-light;
                         }
                     }
-                    .add-to-cart {
-                        display:inline-block;
-                        margin: 0 auto;
-                        padding: 0.4em;
-                        font-size: 1em;
-                        font-family: $font-fam-fira;
-                        font-weight: bold;
-                        text-transform: uppercase;
-                        text-decoration-color: $theme-light;
-                      
-                        //DARK VERSION
-                        font-weight:normal;
-                        color:$theme-light!important;
-                        background-color:$theme-dark;
-                        &:hover {
-                            color:$theme-primary!important;
+
+                    //GENERAL CONTENT DISPLAYED
+                    .entry-content {
+                        p {
+                            font-family: $font-fam-fira;
+                            font-weight: 200;
+                        }
+                    }
+
+                    //PRODUCT LOOP ON HOME PAGE
+                    .mproducts {
+                        p {
+                            margin: 0.125rem;
+                        }
+
+                        a {
+                            img {
+                                border: solid 0.5em $m-color-grey-light;
+                            }
+                        }
+
+                        .add-to-cart {
+                            display: inline-block;
+                            margin: 0 auto;
+                            padding: 0.4em;
+                            font-size: 1em;
+                            font-family: $font-fam-fira;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                            text-decoration-color: $theme-light;
+
                             //DARK VERSION
-                            color:$theme-warning!important;
-                            text-decoration-color: $theme-dark;
+                            font-weight: normal;
+                            color: $theme-light !important;
+                            background-color: $theme-dark;
+
+                            &:hover {
+                                color: $theme-primary !important;
+                                //DARK VERSION
+                                color: $theme-warning !important;
+                                text-decoration-color: $theme-dark;
+                            }
                         }
                     }
-                }
 
-                //PRODUCT DETAIL PAGE ADJUSTMENTS | DESCRIPTION TITLE
-                .product.status-publish h2 {
-                    display:none;
-                } 
-                    
-                //PRODUCT DETAIL PAGE ADJUSTMENTS | WHILE WE HAVE WOOCOMMERCE.CSS ACTIVE
-                .summary.entry-summary {
-                    float:none;
-                    width:100%;
-                    //border:solid 1em orange;
-                }
+                    //PRODUCT DETAIL PAGE ADJUSTMENTS | DESCRIPTION TITLE
+                    .product.status-publish h2 {
+                        display: none;
+                    }
 
-                //PRODUCT DETAILS PAGE ADJUSTMENTS | QUANTITY INPUT NUMBER
-                input[type="number"] {
-                    outline-color: #fff;
-                    border:solid 1px #aaa;
-                }
+                    //PRODUCT DETAIL PAGE ADJUSTMENTS | WHILE WE HAVE WOOCOMMERCE.CSS ACTIVE
+                    .summary.entry-summary {
+                        float: none;
+                        width: 100%;
+                        //border:solid 1em orange;
+                    }
 
-                //PRODUCT DETAILS PAGE ADJUSTMENTS | QUANTITY BOX
-                .qib-container .qib-button:not(#qib_id),
-                .qib-container .quantity input.qty:not(#qib_id) {
-                    background-color:$m-color-white;
-                }
+                    //PRODUCT DETAILS PAGE ADJUSTMENTS | QUANTITY INPUT NUMBER
+                    input[type="number"] {
+                        outline-color: #fff;
+                        border: solid 1px #aaa;
+                    }
 
-                //PRODUT DETAILS PAGE ADJUSTMENTS | ADD TO CART BUTTON
-                form.cart .qib-container + button[type="submit"]:not(#qib_id) {
-                 line-height:2;
-                }
+                    //PRODUCT DETAILS PAGE ADJUSTMENTS | QUANTITY BOX
+                    .qib-container .qib-button:not(#qib_id),
+                    .qib-container .quantity input.qty:not(#qib_id) {
+                        background-color: $m-color-white;
+                    }
 
-                //PRODUCT DETAILS PAGE | PRICE
-                .product p.price {
-                    margin:0;
+                    //PRODUT DETAILS PAGE ADJUSTMENTS | ADD TO CART BUTTON
+                    form.cart .qib-container+button[type="submit"]:not(#qib_id) {
+                        line-height: 2;
+                    }
+
+                    //PRODUCT DETAILS PAGE | PRICE
+                    .product p.price {
+                        margin: 0;
+                    }
                 }
             }
         }
+
+
 
         //WIDGET - ABOUT THE SELLER
         .mabout {

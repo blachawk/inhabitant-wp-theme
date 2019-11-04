@@ -1,45 +1,4 @@
-//IMPORTS FROM BS4 VARS IF NEEDED
-//HEADER
-//FOOTER
-//MAIN CONTENT AREA
-//SIDEBARS
-//WIDGETS
-//MEDIA QUERIES
-
-/*
-DETAILED BRANDING STEPS:
-- done.setup virtual host | mysql db| .htaccess rules on wp/php | wp-admin settings | npm/gulp settings | woocommerce/storefront theme and plugin install | child theme 
-- done.initlize npm/sass
-- done.background color is good
-- done.title area | remove tagline
-- done.add custom favicon via add_action()
-- done.add google fonts via add_action()
-- done.remove search bar area | unregister widget in code 
-- done.unregister sidebars for footer column sidebars 2, 3, 4
-- done.remove the credit in footer via add_action | //turn off store credit text based on codition | https://wordpress.org/support/topic/storefront-code-used-to-remove-credit/
-- done.reshaped the footer shell via SASS
-- done.identify all storefront hooks and visually see them on page
-- done.register a new navigation menu via code and then in the UI
-- done.modify the header.php to represent the placement of our new navigation. 
-- done.add scroll-top-btn to header.php 
-- done.properly configure jquery to work in WordPress and run scroll top button | https://stackoverflow.com/a/7434984/957186
-- done.confirm that our sass colors and basic elements are being applied. 
-- done.create an additional "sidebar" for the home page (front_page()) that talks about the seller.
-- done.completely remove the default navigation so that we can build up our own custom nav | https://wordpress.org/support/topic/remove-nav-links-from-header/
-- done.now re-arrange the functions hooked into storefront header and test | https://stackoverflow.com/a/37758434/957186
-- done.rebuild the navigation menu, along with the hamburger icon, shopping basket and total
-- done.properly wire up google fonts to storefront instead of creating a 2nd instanced of it! via hooks!
-- done.Add a custom products | the WP Sample page (or shop page???) will have its own custom page template to allow a listing of WP_Query of products & AND! a custom sidebar widget for the bottom of the loop for the "about" section.
-- done.now add custom loop to dynamically display products on our new custom template! via WC Product class
-- done.append cart quanity to menu item "View Cart" so mobile users can see the count on dropdown menu.
-- done.removed the breadcrumb link via filters.
-- now.make the wp product detail page match the webpack product detail page
-- done.experiment - detach description hook and place it below the product image hook | https://wordpress.org/support/topic/change-location-on-product-description-and-short-description/
-- done. through wp-admin permalinks, set all product details pages under /shop/ so that its not category/ based in URL path.
-- next.shop page is a special page. customize its look and feel to do a 301 to the home page is someone goes there.
-
-*/
-
+/* INHABITANT CUSTOM SASS | MODIFIED 2019-11-04 */
 html {
     body {
 
@@ -90,7 +49,7 @@ html {
 
             //THE FINAL THANK YOU CONFIRMATION MESSAGE
             .site-content .content-area .site-main .woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-received {
-                font-size: 3em;
+                font-size: $font-xxlarge;
                 font-weight: 800;
                 line-height: 1.1;
             }
@@ -100,8 +59,14 @@ html {
         //PRIVACY POLICY PAGE
         &.privacy-policy {
             .entry-content {
-                text-align: left!important;
+                color:$m-color-grey-dark;
+                //text-align: left!important; //OVERRIDING WOO INLINE STYLE
             }
+        }
+
+        //WOOCOMMERCE ALERTS 
+        .woocommerce-info, .woocommerce-noreviews, p.no-comments {
+            background-color:$m-color-grey-dark;
         }
 
         //GLOBAL  
@@ -110,7 +75,15 @@ html {
         }
 
         #{headings(1)} {
-            font-size: 2rem;
+            font-size: $font-xlarge;
+        }
+
+        .entry-content a:not(.button) {
+            color:darkmagenta;
+            text-decoration-color:$m-color-white;
+            &:hover {
+                color:$m-color-darkergold;
+            }
         }
 
         //OVERRIDE COL-FULL (WOO CONFLICTS WITH BS4)
@@ -155,7 +128,7 @@ html {
             bottom: 1.25em;
             right: 1.875em;
             z-index: 99;
-            font-size: 1em;
+            font-size: $font-normal;
             border: none;
             outline: 0;
         }
@@ -171,8 +144,8 @@ html {
                 font-size: $font-xlarge;
 
                 @media (max-width: 330px) {
-                    font-size: 2rem;
-                    /*1rem = 16px*/
+                    font-size: $font-large;
+                    //1rem = 16px
                 }
 
 
@@ -218,7 +191,7 @@ html {
                 opacity: 0.9;
 
                 &:focus {
-                    outline: #fff 1px dotted;
+                    outline: $m-color-white 1px dotted;
                 }
 
                 .navbar-toggler-icon {
@@ -226,7 +199,7 @@ html {
 
                     &:after,
                     &:before {
-                        background-color: #fff;
+                        background-color: $m-color-white;
                         border-radius: 1px;
                         content: '';
                         display: block;
@@ -334,15 +307,15 @@ html {
                 color: $m-color-white; //#0f834d;
 
                 .button {
-                    color: darkgoldenrod;
-                    border-left: solid 0.325em darkgoldenrod;
+                    color: $m-color-darkgoldenrod;
+                    border-left: solid 0.325em $m-color-darkgoldenrod;
 
                     &:hover {
-                        color: goldenrod;
+                        color: $m-color-darkergold;
                     }
 
                     &:focus {
-                        outline-color: lightgoldenrodyellow;
+                        outline-color: $m-color-lightgoldenrodyellow;
                     }
                 }
             }
@@ -357,7 +330,7 @@ html {
                     //REMOVE LINKS FROM DISPLAYING AS PURPLE ON FOCUS
                     a {
                         &:focus {
-                            outline-color: $theme-light;
+                            outline-color: $m-color-white;
                         }
                     }
 
@@ -372,8 +345,14 @@ html {
                         table.shop_table {
                             thead {
                                 th[class*="product-"] {
-                                    background-color: lightgoldenrodyellow;
-
+                                    //background-color: lightgoldenrodyellow;
+                                    background-color:$m-color-grey-light;
+                                    border:solid 1px $m-color-darkergold;
+                                    border-left:none;
+                                    text-align:center;
+                                }
+                                th.product-remove {
+                                    border-left:solid 1px $m-color-darkergold;
                                 }
                             }
                         }
@@ -395,7 +374,7 @@ html {
                             display: inline-block;
                             margin: 0 auto;
                             padding: 0.4em;
-                            font-size: 1em;
+                            font-size: $font-normal;
                             font-family: $font-fam-fira;
                             font-weight: bold;
                             text-transform: uppercase;
@@ -429,8 +408,8 @@ html {
 
                     //PRODUCT DETAILS PAGE ADJUSTMENTS | QUANTITY INPUT NUMBER
                     input[type="number"] {
-                        outline-color: #fff;
-                        border: solid 1px #aaa;
+                        outline-color: $m-color-white;
+                        border: solid 1px $m-color-greyishblue;
                     }
 
                     //PRODUCT DETAILS PAGE ADJUSTMENTS | QUANTITY BOX
@@ -462,7 +441,7 @@ html {
 
             //FANCY QUOTE
             .quote {
-                font-size: 7em;
+                font-size: $font-xxxlarge;
                 font-family: $font-fam-sec;
                 line-height: 1;
                 -webkit-transform: rotate(-180deg);

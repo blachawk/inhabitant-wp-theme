@@ -12,22 +12,9 @@ md: 720px,
 lg: 1000px,
 xl: 1200px
 );
-
 @function get-breakpoints($key: "md") {
     @return map-get($container-max-widths, $key);
 }
-
-//COLORS
-$m-color-red: #da291c;
-$m-color-blue: #004c97;
-$m-color-blue-light: #007bff;
-$m-color-blue-lighter:#87cefa;
-$m-color-gold: #c09a03ce;
-$m-color-white: #fff;
-$m-color-off-white: #f1f1f1;
-$m-color-grey-light: #efefef;
-$m-color-grey: #6c757d;
-$m-color-grey-dark: #333;
 
 //FONT SIZES
 $font-tiny:0.7rem;
@@ -36,29 +23,43 @@ $font-normal: 1rem;
 $font-medium: 1.25rem;
 $font-large: 1.5rem;
 $font-xlarge: 2.5rem;
+$font-xxlarge: 3rem;
+$font-xxxlarge: 7rem;
 
 //GOOGLE FONTS
 $font-fam-mplus: 'M PLUS 1p', sans-serif; //500 700 900
 $font-fam-fira: 'Fira Sans Condensed', sans-serif;
 $font-fam-sec: 'Secular One', sans-serif; //for quotes
 
+//COLORS
+$m-color-white: #fff;
+$m-color-lightgoldenrodyellow: #fafad2;
+$m-color-grey-light: #efefef;
+$m-color-greyishblue: #aaa;
+$m-color-goldenrod: #daa520;
+$m-color-gold: #c09a03ce;
+$m-color-darkgoldenrod: #b8860b;
+$m-color-darkergold: #a58602;
+$m-color-grey-dark: #333;
+
 //OVERRIDE BS4 THEME COLORS
 $theme-colors: (
-  primary:$m-color-blue, 
-  secondary: $m-color-off-white, 
-  success: $m-color-grey, 
-  info: $m-color-grey-light, 
+  light: $m-color-white,
+  primary:$m-color-lightgoldenrodyellow, 
   warning: $m-color-gold, 
-  light: $m-color-white, 
-  dark: $m-color-grey-dark
+  info: $m-color-grey-light, 
+  secondary: $m-color-goldenrod,
+  dark: $m-color-grey-dark,
+  success: $m-color-darkergold
   );
-$theme-primary: map-get($theme-colors, "primary");
-$theme-secondary: map-get($theme-colors, "secondary");
-$theme-success: map-get($theme-colors, "success");
-$theme-info: map-get($theme-colors, "info");
-$theme-warning: map-get($theme-colors, "warning");
+
 $theme-light: map-get($theme-colors, "light");
+$theme-primary: map-get($theme-colors, "primary");
+$theme-warning: map-get($theme-colors, "warning");
+$theme-info: map-get($theme-colors, "info");
+$theme-secondary: map-get($theme-colors, "secondary");
 $theme-dark: map-get($theme-colors, "dark");
+$theme-success: map-get($theme-colors, "success");
 
 //OVERRIDE BS4 BG COLORS
 @each $key,
@@ -81,7 +82,7 @@ $val in $theme-colors {
             }
 
             &:active {
-                color: $m-color-blue-lighter !important;
+                color: $m-color-darkgoldenrod !important;
             }
         }
 
@@ -102,7 +103,7 @@ $val in $theme-colors {
 @mixin panel-varient($bgcolorOff, $borcolorOff, $bgcolorOn, $borcolorOn, $bgcolorAct, $borcolorAct, $txtcolorOff, $txtcolorOn, $txtsize, $txtalign){
     //OVERRIDE BS4 BUTTON VARIENTS
     @include button-variant($bgcolorOff, $borcolorOff, $bgcolorOn, $borcolorOn, $bgcolorAct, $borcolorAct);
-    color:$color-sand-dark;
+    color:$m-color-darkgoldenrod;
     font-size:$txtsize;
     font-weight:bold;
     text-transform:uppercase;

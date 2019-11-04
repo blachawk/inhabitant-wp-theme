@@ -19,7 +19,7 @@
 
 <body <?php body_class(); ?>>
 
-    <button class="btn btn-success scroll-top-btn" title="Scroll Up">Top</button>
+    <button class="btn btn-dark scroll-top-btn" title="Scroll Up">Top</button>
 
     <?php do_action('storefront_before_site'); ?>
 

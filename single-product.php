@@ -1,6 +1,6 @@
 <?php
 /**
- * The Template for displaying all single products
+ * The Template for displaying all single products.
  *
  * This template can be overridden by copying it to yourtheme/woocommerce/single-product.php.
  *
@@ -11,11 +11,10 @@
  * the readme will list any important changes.
  *
  * @see 	    https://docs.woocommerce.com/document/template-structure/
- * @package 	WooCommerce/Templates
+ *
  * @version     1.6.4
  */
-
-if (! defined('ABSPATH')) {
+if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
@@ -31,14 +30,15 @@ get_header('shop'); ?>
         do_action('woocommerce_before_main_content');
     ?>
 
-<?php while (have_posts()) : the_post(); ?>
+<?php while (have_posts()) {
+        the_post(); ?>
 
 <?php
 //_tn - THE HEART OF OUR PRODUCT PAGE
-wc_get_template_part('content', 'single-product');
-?>
+wc_get_template_part('partials/content', 'single-product'); ?>
 
-<?php endwhile; // end of the loop.?>
+<?php
+    } // end of the loop.?>
 
 <?php
         /**
@@ -60,4 +60,4 @@ wc_get_template_part('content', 'single-product');
 
 <?php get_footer('shop');
 
-/* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */
+// Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues.

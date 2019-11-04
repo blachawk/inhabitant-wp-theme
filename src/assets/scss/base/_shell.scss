@@ -43,6 +43,8 @@ DETAILED BRANDING STEPS:
 html {
     body {
 
+        font-family: $font-fam-fira;
+
         //CHECKOUT PAGE
         &.woocommerce-checkout {
 
@@ -95,12 +97,14 @@ html {
 
         }
 
-        //CONFIRMATION PAGE
-        &.woocommerce-checkout.logged-in {}
+        //PRIVACY POLICY PAGE
+        &.privacy-policy {
+            .entry-content {
+                text-align: left!important;
+            }
+        }
 
-        font-family: $font-fam-fira;
-
-        //GLOABLS   
+        //GLOBAL  
         #{headings(1,6)} {
             margin: 0;
         }
@@ -109,7 +113,7 @@ html {
             font-size: 2rem;
         }
 
-        //OVERRIDE COL-FULL (WOO CONFLICTS WITH BS4 HERE)
+        //OVERRIDE COL-FULL (WOO CONFLICTS WITH BS4)
         .col-full {
 
             @media (max-width: 330px) {
@@ -118,7 +122,7 @@ html {
             }
         }
 
-        //OVERRIDE COL-X (WOO CONFLICTS WITH BS4 HERE)
+        //OVERRIDE COL-X (WOO CONFLICTS WITH BS4)
         .col-1,
         .col-2 {
             max-width: none;

@@ -2,17 +2,22 @@
 import 'bootstrap';
 import $ from 'jquery'; //https://www.npmjs.com/package/jquery | added jquery for javascript purposes.
 
-console.log('testing raw js is ok ');
-//testing jquery
-$('html').addClass('mjquery');
-
-//////
+//////////
 //JQ- Test
 function testjs() {
+    $('html').addClass('mjquery');
     console.log('js connected via wordpress');
 }
 
-////////////////
+///////////////////////////////////////////////////////////
+//JQ- DEV MODE - DISABLE ALL ANCHORLINKS DURING DEVELOPMENT
+function disableLinks() {
+    $('a').on('click', function (e) {
+        e.preventDefault();
+    });
+}
+
+/////////////////////
 //JQ - SCROLL TOP BTN
 function scrollbackup() {
 
@@ -36,7 +41,6 @@ function scrollbackup() {
     });
 }
 
-
 /////////////////////////////////////////
 //DETECT IF CSS3 ANIMATIONS ARE SUPPORTED
 function animatetopbar() {
@@ -55,22 +59,11 @@ function animatetopbar() {
     }
 }
 
-//////////////////////////////////////////////////////
-//JQ- DEV MODE - DISABLE ALL ANCHORLINKS DURING DEVELOPMENT
-function disableLinks() {
-    $('a').on('click', function (e) {
-        e.preventDefault();
-    });
-}
-
-////////////////////
-//JQ - RUN BS4 JS ACTIONS
+/////////////////////////////
+//JQ - RUN BS4 CUSTOM ACTIONS
 function bs4actions() {
-    //INITIATE BS4 TOOLTIPS | https://getbootstrap.com/docs/4.0/components/tooltips/
-    //use css to disable on mobile devices | https://stackoverflow.com/a/26689836/957186
-    //$('[data-toggle="tooltip"]').tooltip();
 
-    //TOGGLE TOP MENU ON EVENT CALL
+    //CLICK OUTSIDE THE TOP NAV BAR MENU TO CLOSE IT
     $(document).click(function (e) {
         e.stopPropagation();
         var menuOpen = $("#navbarToggleExternalContent.collapse");
@@ -78,26 +71,22 @@ function bs4actions() {
             menuOpen.collapse('hide');
         }
     });
+
+    //TOGGLE THE FADE ON THE COUNT WHEN MENU IS FIRED
+    var mMiniCart = $('.inhabit-mini-cart');
+    $('#navbarToggleExternalContent').on('show.bs.collapse', function () {
+        mMiniCart.fadeOut();
+    });
+    $('#navbarToggleExternalContent').on('hide.bs.collapse', function () {
+        mMiniCart.fadeIn();
+    });
 }
 
-$(function () {
-    //$(".dropdown-toggle").dropdown('toggle'); // this works
-    $('#click').click(function (e) {
-        e.stopPropagation();
-        $(".dropdown-toggle").dropdown('toggle'); // this doesn't
-    });
-});
-
-
-
-
 //_tn - THE PROPER WAY TO LOAD JQUERY IN WORDPRESS
-//_tn - RUN ALL SCRIPTS
 jQuery(document).ready(function ($) {
-    // now you can use jQuery code here with $ shortcut formatting
-    // this will execute after the document is fully loaded
-    // anything that interacts with your html should go here
-    testjs();
+    //testjs();
+    //disableLinks();
+    animatetopbar();
     scrollbackup();
     bs4actions();
 });

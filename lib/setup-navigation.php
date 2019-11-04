@@ -51,10 +51,10 @@ function _tn_append_nav_item($items, $args)
 
     //CALL CUSTOM ACTION EVERYWHERE EXCEPT ON VIEW CART PAGE
     $mpage = get_the_title();
-    if ('View Cart' != $mpage) {
+    if ('Cart View' != $mpage) {
         if ('main-menu' == $args->name) {
             //APPEND QAUNTITY TO MY EXISTING MENU ITEM
-            $items = str_replace('View Cart', "View Cart | <span class='text-warning'>".$woocountquantity.'</span>', $items);
+            $items = str_replace('Cart', "Cart | <span class='text-warning'>".$woocountquantity.'</span>', $items);
         }
     }
 

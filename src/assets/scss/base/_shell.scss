@@ -42,6 +42,62 @@ DETAILED BRANDING STEPS:
 
 html {
     body {
+
+        //CHECKOUT PAGE
+        &.woocommerce-checkout {
+
+            //DON'T DISPLAY TOP MENU WHILE CHECKING OUT
+            .navbar {
+                display: none !important;
+            }
+
+            //MODIFY THE BILLING COLUMN OF THE CHECKOUT PAGE
+            .woocommerce-billing-fields {
+                .form-row {
+                    display: block;
+                    text-align: left;
+                }
+            }
+
+            //MODIFY COMMENTS FIELD ON CHECKOUT PAGE 
+            #order_comments_field label,
+            #order_comments_field textarea {
+                display: block;
+                width: 100%;
+                min-width: 295px;
+            }
+
+            //ADD SOME SPACING TO THE HEADER AREA
+            .entry-header {
+                margin-bottom: 2em;
+            }
+
+            //MAKE THE CUSTOMER DETAILS EASIER TO READ
+            #customer_details {
+                text-align: left;
+
+                h3 {
+                    text-align: center;
+                }
+
+                ul li {
+                    margin: 1em 0;
+                }
+
+            }
+
+            //THE FINAL THANK YOU CONFIRMATION MESSAGE
+            .site-content .content-area .site-main .woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-received {
+                font-size: 3em;
+                font-weight: 800;
+                line-height: 1.1;
+            }
+
+        }
+
+        //CONFIRMATION PAGE
+        &.woocommerce-checkout.logged-in {}
+
         font-family: $font-fam-fira;
 
         //GLOABLS   
@@ -53,13 +109,19 @@ html {
             font-size: 2rem;
         }
 
-        //OVERRIDE COL-FULL
+        //OVERRIDE COL-FULL (WOO CONFLICTS WITH BS4 HERE)
         .col-full {
 
             @media (max-width: 330px) {
                 padding: 0.1rem;
                 margin: 0.1rem;
             }
+        }
+
+        //OVERRIDE COL-X (WOO CONFLICTS WITH BS4 HERE)
+        .col-1,
+        .col-2 {
+            max-width: none;
         }
 
         //DETECT STOREFRONT HOOK AREAS
@@ -261,11 +323,11 @@ html {
 
         //MAIN CONTENT WRAPPER
         .site-content {
-            
+
             //WC ALERT MESSAGE AREA
             .woocommerce-message {
-                background-color: lightgoldenrodyellow;
-                color:#0f834d;
+                background-color: $m-color-grey-dark; // lightgoldenrodyellow;
+                color: $m-color-white; //#0f834d;
 
                 .button {
                     color: darkgoldenrod;
@@ -300,6 +362,16 @@ html {
                         p {
                             font-family: $font-fam-fira;
                             font-weight: 200;
+                        }
+
+
+                        table.shop_table {
+                            thead {
+                                th[class*="product-"] {
+                                    background-color: lightgoldenrodyellow;
+
+                                }
+                            }
                         }
                     }
 
@@ -366,6 +438,10 @@ html {
                     //PRODUT DETAILS PAGE ADJUSTMENTS | ADD TO CART BUTTON
                     form.cart .qib-container+button[type="submit"]:not(#qib_id) {
                         line-height: 2;
+
+                        &:focus {
+                            outline-color: $m-color-grey-dark;
+                        }
                     }
 
                     //PRODUCT DETAILS PAGE | PRICE
@@ -375,8 +451,6 @@ html {
                 }
             }
         }
-
-
 
         //WIDGET - ABOUT THE SELLER
         .mabout {

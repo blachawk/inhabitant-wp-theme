@@ -80,7 +80,7 @@ add_action('wp', function () {
 add_action('wp', function () {
     remove_action('storefront_header', 'storefront_header_cart', 60);
     $mpage = get_the_title();
-    if ('View Cart' != $mpage) {
+    if ('Cart View' != $mpage) {
         //add_action('_tn_do_mini_cart', 'storefront_header_cart', 1);
         add_action('_tn_do_mini_cart', function () {
             //RETRIEVE WOOCOMMERCE CART QUANITTY VALUE
@@ -90,7 +90,7 @@ add_action('wp', function () {
 
             //CALL CUSTOM ACTION EVERYWHERE EXCEPT ON VIEW CART PAGE
             $mpage = get_the_title();
-            if ('View Cart' != $mpage) {
+            if ('Cart View' != $mpage) {
                 //APPEND QAUNTITY TO INHABITANT CART QUANTITY POP-UP BOX
                 //RESOURCE - https://stackoverflow.com/a/40102239/957186
                 echo '<a class="position-relative text-light" href="'.esc_url(wc_get_cart_url()).'">Cart <span class="text-warning pl-2">'.$woocountquantity.'</span></a>';
@@ -113,6 +113,12 @@ add_action('woocommerce_before_single_product_summary', 'woocommerce_template_pr
 
 //_tn - REMOVE PRODUCT META | THIS INCLUDES THE CATEGORY LINKS
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+
+function _tn_paypal_content()
+{
+    echo '<div class="alert w-75 m-auto text-center">Click below to purchase this item now</div>';
+}
+add_action('woocommerce_after_add_to_cart_form', '_tn_paypal_content', 0);
 
 //remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
 //add_action( 'woocommerce_after_single_product_summary', 'woocommerce_template_single_excerpt', 20 );

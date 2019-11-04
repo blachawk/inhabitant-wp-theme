@@ -214,7 +214,8 @@ show_admin_bar(false);
 //add_filter('storefront_customizer_css', '__return_false'); // | https://stackoverflow.com/a/37403115/957186
 //add_filter('storefront_customizer_woocommerce_css', '__return_false'); // | https://stackoverflow.com/a/37403115/957186
 
-//_tn - DISABLE UNUSED ADMIN MENU ITEMS
+//_tn - DISABLE UNNEEDED ADMIN MENU ITEMS
+//_tn - RESOURCES  https://wplift.com/how-to-remove-wordpress-admin-menu-items https://wordpress.stackexchange.com/a/307734/98671 | https://wordpress.stackexchange.com/a/52151/98671
 add_action('admin_menu', 'remove_admin_menus');
 //add_action( 'admin_menu', 'remove_admin_submenus' );
 

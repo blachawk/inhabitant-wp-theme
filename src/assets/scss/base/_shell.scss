@@ -13,7 +13,8 @@ html {
             }
 
             //MODIFY THE BILLING COLUMN OF THE CHECKOUT PAGE
-            .woocommerce-billing-fields {
+            .woocommerce-billing-fields,
+            .woocommerce-shipping-fields {
                 .form-row {
                     display: block;
                     text-align: left;
@@ -56,17 +57,26 @@ html {
 
         }
 
+        //ORDER RECEIVED PAGE
+        &.woocommerce-order-received {
+            .entry-header {
+                display: none;
+            }
+        }
+
         //PRIVACY POLICY PAGE
         &.privacy-policy {
             .entry-content {
-                color:$m-color-grey-dark;
+                color: $m-color-grey-dark;
                 //text-align: left!important; //OVERRIDING WOO INLINE STYLE
             }
         }
 
         //WOOCOMMERCE ALERTS 
-        .woocommerce-info, .woocommerce-noreviews, p.no-comments {
-            background-color:$m-color-grey-dark;
+        .woocommerce-info,
+        .woocommerce-noreviews,
+        p.no-comments {
+            background-color: $m-color-grey-dark;
         }
 
         //GLOBAL  
@@ -79,10 +89,11 @@ html {
         }
 
         .entry-content a:not(.button) {
-            color:darkmagenta;
-            text-decoration-color:$m-color-white;
+            color: darkmagenta;
+            text-decoration-color: $m-color-white;
+
             &:hover {
-                color:$m-color-darkergold;
+                color: $m-color-darkergold;
             }
         }
 
@@ -186,12 +197,18 @@ html {
             right: 0;
 
             //ANIMATION FOR LINES 
-            .navbar-toggler {
+            button.navbar-toggler {
 
                 opacity: 0.9;
 
+                &:hover {
+                    background-color: $m-color-grey-dark !important;
+
+                }
+
                 &:focus {
-                    outline: $m-color-white 1px dotted;
+                    background-color: $m-color-grey-dark !important;
+                    outline: $m-color-grey-dark 1px dotted;
                 }
 
                 .navbar-toggler-icon {
@@ -339,20 +356,29 @@ html {
                         p {
                             font-family: $font-fam-fira;
                             font-weight: 200;
+
+
+                            @media (max-width: 360px) {
+                                font-weight: 400;
+                                font-size: $font-medium;
+                            }
+
                         }
 
-
+                        //CHECK OUT
                         table.shop_table {
                             thead {
                                 th[class*="product-"] {
                                     //background-color: lightgoldenrodyellow;
-                                    background-color:$m-color-grey-light;
-                                    border:solid 1px $m-color-darkergold;
-                                    border-left:none;
-                                    text-align:center;
+                                    background-color: $m-color-grey-light;
+                                    border: solid 1px $m-color-darkergold;
+                                    border-left: none;
+                                    text-align: center;
                                 }
-                                th.product-remove {
-                                    border-left:solid 1px $m-color-darkergold;
+
+                                th.product-remove,
+                                th.product-name {
+                                    border-left: solid 1px $m-color-darkergold;
                                 }
                             }
                         }

@@ -66,3 +66,9 @@ function sample()
 //   <p class="m-0 font-weight-bold">Free shipping on all orders</p>
 // </div>
 // </div>
+
+add_filter('woocommerce_thankyou_order_received_text', 'woo_change_order_received_text', 10, 2);
+function woo_change_order_received_text($str, $order)
+{
+    return '<h1 class="font-weight-bold">Thank you. Your order has been received.</h1> <p>We have e-mailed the purchase receipt to you.</p><p><a href="'.get_home_url().'">Click here to return home.</a></p>';
+}

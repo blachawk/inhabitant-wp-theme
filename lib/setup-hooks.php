@@ -257,3 +257,18 @@ function remove_admin_submenus()
     remove_submenu_page('options-general.php', 'options-permalinks.php');
     remove_submenu_page('index.php', 'update-core.php');
 }
+
+//_tn FROM ADMIN, OPEN VISIT SITE IN NEW TAB
+
+add_action('admin_bar_menu', 'shatel_view', 999);
+function shatel_view($wp_admin_bar)
+{
+    $all_toolbar_nodes = $wp_admin_bar->get_nodes();
+    foreach ($all_toolbar_nodes as $node) {
+        if ('site-name' == $node->id || 'view-site' == $node->id || 'view-store' == $node->id) {
+            $args = $node;
+            $args->meta = ['target' => '_blank'];
+            $wp_admin_bar->add_node($args);
+        }
+    }
+}

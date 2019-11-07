@@ -146,7 +146,7 @@ function _tn_storefront_product_loop()
             echo '<div class="col text-center mb-5 py-2">';
             echo '<p><a class="" href="'.get_permalink($product->get_id()).'">'.get_the_post_thumbnail($product->get_id()).'</a></p>';
             echo '<p><a class="text-dark h5" href="'.get_permalink($product->get_id()).'">'.$product->get_title().'</a></p>'; //Product link
-            echo '<p>$'.$product->get_price().'</p>';          // Product price
+            echo '<p>$'.wc_format_decimal($product->get_price_including_tax(), 2).'</p>';          // Product price
             echo '<p><a href="'.$product->add_to_cart_url().'" class="text-dark add-to-cart">Add To Cart</a></p>'; //add to cart link
             echo '</div>';
             echo '</div>';
